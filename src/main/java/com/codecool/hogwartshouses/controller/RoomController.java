@@ -5,10 +5,7 @@ import com.codecool.hogwartshouses.model.RoomModel;
 import com.codecool.hogwartshouses.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
 import java.util.List;
@@ -30,16 +27,23 @@ public class RoomController {
         return "showRooms";
     }
 
-    @PostMapping("/rooms")
-    public String insertRoom(){
-        roomService.insertRoom(new Room(false));
-        return "index";
-    }
-
     @GetMapping("/rooms/{id}")
     public String getRoomById(@PathVariable long id, Model model) {
         RoomModel room = roomService.getRoomById(id);
         model.addAttribute("room", room);
         return "showRoom";
+    }
+
+    @PostMapping("/rooms")
+    public String insertRoom() {
+        roomService.insertRoom(new Room(false));
+        return "index";
+    }
+
+    // https://stackoverflow.com/questions/24256051/delete-or-put-methods-in-thymeleaf
+    @GetMapping("/rooms/delete/{id}")
+    public String deleteRoomById(@PathVariable long id, Model model) {
+        roomService.deleteRoomById(id);
+        return getAllRooms(model);
     }
 }

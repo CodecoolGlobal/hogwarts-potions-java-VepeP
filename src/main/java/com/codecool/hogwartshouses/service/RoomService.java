@@ -39,4 +39,8 @@ public class RoomService {
         Room room = roomRepository.findById(id);
         return new RoomModel(room);
     }
+
+    public void deleteRoomById(long id) {
+        roomRepository.deleteById(id);
+    }
 }
