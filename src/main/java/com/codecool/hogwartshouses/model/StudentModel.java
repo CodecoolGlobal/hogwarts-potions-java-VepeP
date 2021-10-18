@@ -8,14 +8,12 @@ import com.codecool.hogwartshouses.entity.types.PetType;
 public class StudentModel {
     private long id;
     private String name;
-    private Room roomId;
     private PetType petType;
     private HouseType houseType;
 
     public StudentModel(Student student) {
         this.id = student.getId();
         this.name = student.getName();
-        this.roomId = student.getRoomId();
         this.petType = student.getPetType();
         this.houseType = student.getHouseType();
     }
@@ -34,14 +32,6 @@ public class StudentModel {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Room getRoomId() {
-        return roomId;
-    }
-
-    public void setRoomId(Room roomId) {
-        this.roomId = roomId;
     }
 
     public PetType getPetType() {
