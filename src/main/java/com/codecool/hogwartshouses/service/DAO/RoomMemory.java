@@ -1,6 +1,6 @@
 package com.codecool.hogwartshouses.service.DAO;
 
-import com.codecool.hogwartshouses.model.Room;
+import com.codecool.hogwartshouses.model.RoomModel;
 import org.springframework.stereotype.Repository;
 
 import java.util.Set;
@@ -8,9 +8,9 @@ import java.util.Set;
 @Repository
 public class RoomMemory implements RoomDAO {
 
-    private Set<Room> rooms;
+    private Set<RoomModel> roomModels;
 
-    public RoomMemory(Set<Room> rooms) {
-        this.rooms = rooms;
+    public RoomMemory(Set<RoomModel> roomModels) {
+        this.roomModels = roomModels;
     }
 }
