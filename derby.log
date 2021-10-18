@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Mon Oct 18 10:15:35 CEST 2021:
+ Derby The Apache Software Foundation - Apache Derby - 10.15.2.0 - (1873585) változat betöltése: a816c00e-017c-9278-61ba-000003fea7b8 példány
+a(z) memory:D:\Peti\Suli\Codecool\Projects\Advanced\Week Pair 2\hogwarts-houses-1-java-VepeP\a9ebcf14-0cc2-4d7f-8df7-a6a1f97b74d5 adatbázis-könyvtáron: jdk.internal.loader.ClassLoaders$AppClassLoader@266474c2 
+
+java.vendor=AdoptOpenJDK
+java.runtime.version=16.0.1+9
+user.dir=D:\Peti\Suli\Codecool\Projects\Advanced\Week Pair 2\hogwarts-houses-1-java-VepeP
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Az adatbázis-osztálybetöltő elindult - derby.database.classpath=''
