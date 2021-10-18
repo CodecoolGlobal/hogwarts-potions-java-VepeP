@@ -35,6 +35,14 @@ public class Student {
     @ApiModelProperty(notes = "House type of the student")
     private HouseType houseType;
 
+    public Student() {    }
+
+    public Student(String name, PetType petType, HouseType houseType) {
+        this.name = name;
+        this.petType = petType;
+        this.houseType = houseType;
+    }
+
     public long getId() {
         return id;
     }

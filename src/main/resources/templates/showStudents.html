@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hogwarts Houses - Rooms</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/showRooms.css}" rel="stylesheet"/>
+</head>
+<body th:style="'background: url(/img/background.jpg) no-repeat center center fixed;'">
+<h1><a href="/">Welcome to Hogwart Houses</a></h1>
+<div>
+    <l th:each="student: ${students}">
+        <li>
+            <span th:text="'Student #'"></span>
+            <a th:href="@{/students/{id}(id=${student.id})}" th:text="${student.id}"></a>
+            <span th:text="' name: ' + ${student.name}"></span>
+        </li>
+    </l>
+    </ul>
+</div>
+</body>
+</html>
