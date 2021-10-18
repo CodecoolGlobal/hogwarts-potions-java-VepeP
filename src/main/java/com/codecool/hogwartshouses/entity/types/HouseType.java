@@ -1,4 +1,4 @@
-package com.codecool.hogwartshouses.model.types;
+package com.codecool.hogwartshouses.entity.types;
 
 public enum HouseType {
     GRYFFINDOR,
