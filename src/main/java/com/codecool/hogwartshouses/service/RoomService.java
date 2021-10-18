@@ -30,4 +30,8 @@ public class RoomService {
         }
         return roomModels;
     }
+
+    public void insertRoom(Room room) {
+        roomRepository.save(room);
+    }
 }

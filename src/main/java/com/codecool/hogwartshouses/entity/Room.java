@@ -23,6 +23,19 @@ public class Room {
     @JoinColumn(name = "student_id", referencedColumnName = "id")
     private Student student;
 
+    public Room() {
+
+    }
+
+    public Room(boolean needsRenovation) {
+        this.needsRenovation = needsRenovation;
+    }
+
+    public Room(boolean needsRenovation, Student student) {
+        this.needsRenovation = needsRenovation;
+        this.student = student;
+    }
+
     public long getId() {
         return id;
     }

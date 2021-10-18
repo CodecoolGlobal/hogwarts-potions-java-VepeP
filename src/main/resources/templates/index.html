@@ -8,7 +8,10 @@
 <body th:style="'background: url(/img/background.jpg) no-repeat center center fixed;'">
 <h1>Welcome to Hogwart Houses</h1>
 <div>
-    <p><a href="/rooms">Rooms</a></p>
+    <p><a href="/rooms" methods="GET">Rooms</a></p>
+    <form action="/rooms" method="post">
+        <button type="submit" class="btn-link">Add room</button>
+    </form>
 </div>
 </body>
 </html>
