@@ -27,6 +27,13 @@ public class RoomController {
         return "showRooms";
     }
 
+    @GetMapping("/rooms/available")
+    public String getAllAvailableRooms(Model model) {
+        List<RoomModel> rooms = roomService.getAllAvailableRooms();
+        model.addAttribute("rooms", rooms);
+        return "showAvailableRooms";
+    }
+
     @GetMapping("/rooms/{id}")
     public String getRoomById(@PathVariable long id, Model model) {
         RoomModel room = roomService.getRoomById(id);

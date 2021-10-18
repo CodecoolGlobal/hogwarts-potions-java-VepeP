@@ -9,8 +9,12 @@ public interface RoomRepository extends JpaRepository<Room, Long> {
 
     List<Room> findAll();
 
+    List<Room> findAllByStudentNullOrderByIdAsc();
+
     Room findById(long id);
 
     Room findByStudentId(long id);
+
+
 
 }

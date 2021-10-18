@@ -47,4 +47,13 @@ public class RoomService {
         room.setNeedsRenovation(false);
         roomRepository.save(room);
     }
+
+    public List<RoomModel> getAllAvailableRooms() {
+        List<RoomModel> roomModels = new ArrayList<>();
+        List<Room> rooms = roomRepository.findAllByStudentNullOrderByIdAsc();
+        for (Room room : rooms) {
+            roomModels.add(new RoomModel(room));
+        }
+        return roomModels;
+    }
 }
