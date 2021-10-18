@@ -9,8 +9,16 @@
 <h1><a href="/">Welcome to Hogwart Houses</a></h1>
 <div>
     <l th:each="room: ${rooms}">
-        <li th:if="${room.resident != ''}" th:text="'Room #' + ${room.id} + ' owned by ' + ${room.resident}"></li>
-        <li th:unless="${room.resident != ''}" th:text="'Room #' + ${room.id} + ' is empty'"></li>
+        <li th:if="${room.resident != ''}">
+            <span th:text="'Room #'"></span>
+            <a th:href="@{/rooms/{id}(id=${room.id})}" th:text="${room.id}"></a>
+            <span th:text="' owned by ' + ${room.resident}"></span>
+        </li>
+        <li th:unless="${room.resident != ''}">
+            <span th:text="'Room #'"></span>
+            <a th:href="@{/rooms/{id}(id=${room.id})}" th:text="${room.id}"></a>
+            <span th:text="' is empty'"></span>
+        </li>
     </l>
     </ul>
 </div>

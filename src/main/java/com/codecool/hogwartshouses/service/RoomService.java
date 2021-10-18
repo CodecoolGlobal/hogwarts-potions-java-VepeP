@@ -34,4 +34,9 @@ public class RoomService {
     public void insertRoom(Room room) {
         roomRepository.save(room);
     }
+
+    public RoomModel getRoomById(long id) {
+        Room room = roomRepository.findById(id);
+        return new RoomModel(room);
+    }
 }
