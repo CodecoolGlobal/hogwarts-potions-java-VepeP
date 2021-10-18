@@ -1,5 +1,7 @@
 package com.codecool.hogwartshouses.entity;
 
+import com.codecool.hogwartshouses.entity.types.HouseType;
+import com.codecool.hogwartshouses.entity.types.PetType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.CreationTimestamp;
@@ -35,11 +37,11 @@ public class Student {
     @JoinColumn(name = "room_id", referencedColumnName = "id")
     private Room roomId;
 
-    @ApiModelProperty(notes = "Whether the student has a cat")
-    private boolean hasCat;
+    @ApiModelProperty(notes = "Pet type of the student")
+    private PetType petType;
 
-    @ApiModelProperty(notes = "Whether the student has an owl")
-    private boolean hasOwl;
+    @ApiModelProperty(notes = "House type of the student")
+    private HouseType houseType;
 
     public long getId() {
         return id;
@@ -73,19 +75,19 @@ public class Student {
         this.roomId = roomId;
     }
 
-    public boolean isHasCat() {
-        return hasCat;
+    public PetType getPetType() {
+        return petType;
     }
 
-    public void setHasCat(boolean hasCat) {
-        this.hasCat = hasCat;
+    public void setPetType(PetType petType) {
+        this.petType = petType;
     }
 
-    public boolean isHasOwl() {
-        return hasOwl;
+    public HouseType getHouseType() {
+        return houseType;
     }
 
-    public void setHasOwl(boolean hasOwl) {
-        this.hasOwl = hasOwl;
+    public void setHouseType(HouseType houseType) {
+        this.houseType = houseType;
     }
 }
