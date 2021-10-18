@@ -19,4 +19,19 @@ public class Room {
     @ApiModelProperty(notes = "Whether the room needs renovation")
     private boolean needsRenovation;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public boolean isNeedsRenovation() {
+        return needsRenovation;
+    }
+
+    public void setNeedsRenovation(boolean needsRenovation) {
+        this.needsRenovation = needsRenovation;
+    }
 }

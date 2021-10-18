@@ -41,4 +41,51 @@ public class Student {
     @ApiModelProperty(notes = "Whether the student has an owl")
     private boolean hasOwl;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Timestamp getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Timestamp createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Room getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(Room roomId) {
+        this.roomId = roomId;
+    }
+
+    public boolean isHasCat() {
+        return hasCat;
+    }
+
+    public void setHasCat(boolean hasCat) {
+        this.hasCat = hasCat;
+    }
+
+    public boolean isHasOwl() {
+        return hasOwl;
+    }
+
+    public void setHasOwl(boolean hasOwl) {
+        this.hasOwl = hasOwl;
+    }
 }
