@@ -12,9 +12,8 @@ import javax.persistence.*;
 public class Room {
     @ApiModelProperty(notes = "The unique id of the student")
     @Id
-    @GeneratedValue
-    @GenericGenerator(name = "increment", strategy = "increment")
-    private long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
 
     @ApiModelProperty(notes = "Whether the room needs renovation")
     private boolean needsRenovation;

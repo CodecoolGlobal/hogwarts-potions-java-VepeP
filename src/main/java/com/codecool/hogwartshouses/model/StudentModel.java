@@ -4,11 +4,7 @@ import com.codecool.hogwartshouses.entity.Room;
 import com.codecool.hogwartshouses.entity.Student;
 import com.codecool.hogwartshouses.entity.types.HouseType;
 import com.codecool.hogwartshouses.entity.types.PetType;
-import lombok.Builder;
-import lombok.Data;
 
-@Data
-@Builder
 public class StudentModel {
     private long id;
     private String name;

@@ -18,9 +18,8 @@ import java.sql.Timestamp;
 public class Student {
     @ApiModelProperty(notes = "The unique id of the student")
     @Id
-    @GeneratedValue
-    @GenericGenerator(name = "increment", strategy = "increment")
-    private long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
 
     @ApiModelProperty(notes = "The day when student was created")
     @CreationTimestamp
