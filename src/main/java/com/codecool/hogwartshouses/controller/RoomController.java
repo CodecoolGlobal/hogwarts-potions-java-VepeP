@@ -46,4 +46,11 @@ public class RoomController {
         roomService.deleteRoomById(id);
         return getAllRooms(model);
     }
+
+    // https://stackoverflow.com/questions/24256051/delete-or-put-methods-in-thymeleaf
+    @GetMapping("/rooms/put/{id}")
+    public String putRoomById(@PathVariable long id, Model model) {
+        roomService.updateRoomById(id);
+        return getRoomById(id, model);
+    }
 }
