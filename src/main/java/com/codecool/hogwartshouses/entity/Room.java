@@ -2,9 +2,9 @@ package com.codecool.hogwartshouses.entity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @ApiModel(description = "Details about a room")
 @Entity
@@ -12,11 +12,16 @@ import javax.persistence.*;
 public class Room {
     @ApiModelProperty(notes = "The unique id of the student")
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     @ApiModelProperty(notes = "Whether the room needs renovation")
     private boolean needsRenovation;
+
+    @ApiModelProperty(notes = "The id of the resident")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "student_id", referencedColumnName = "id")
+    private Student student;
 
     public long getId() {
         return id;
@@ -32,5 +37,13 @@ public class Room {
 
     public void setNeedsRenovation(boolean needsRenovation) {
         this.needsRenovation = needsRenovation;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 }

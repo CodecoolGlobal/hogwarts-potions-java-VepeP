@@ -5,7 +5,6 @@ import com.codecool.hogwartshouses.entity.types.PetType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.validation.constraints.NotNull;
 
@@ -18,7 +17,7 @@ import java.sql.Timestamp;
 public class Student {
     @ApiModelProperty(notes = "The unique id of the student")
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ApiModelProperty(notes = "The day when student was created")
@@ -29,12 +28,6 @@ public class Student {
     @ApiModelProperty(notes = "The name of the student")
     @NotNull
     private String name;
-
-    @ApiModelProperty(notes = "The room id of the student")
-    @NotNull
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "room_id", referencedColumnName = "id")
-    private Room roomId;
 
     @ApiModelProperty(notes = "Pet type of the student")
     private PetType petType;
@@ -64,14 +57,6 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Room getRoomId() {
-        return roomId;
-    }
-
-    public void setRoomId(Room roomId) {
-        this.roomId = roomId;
     }
 
     public PetType getPetType() {
