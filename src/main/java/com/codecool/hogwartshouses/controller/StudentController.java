@@ -38,8 +38,13 @@ public class StudentController {
         return "showStudent";
     }
 
-    @PostMapping("/students")
-    public String insertRoom() {
+    @GetMapping("/students/add")
+    public String addStudent() {
+        return "addStudent";
+    }
+
+    @PostMapping("/student/add")
+    public String insertStudent() {
         studentService.insertStudent(new Student("Test Elek", PetType.NONE, HouseType.GRYFFINDOR));
         return "index";
     }

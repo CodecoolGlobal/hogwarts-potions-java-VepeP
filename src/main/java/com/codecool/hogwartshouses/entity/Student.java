@@ -18,7 +18,7 @@ public class Student {
     @ApiModelProperty(notes = "The unique id of the student")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @ApiModelProperty(notes = "The day when student was created")
     @CreationTimestamp

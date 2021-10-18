@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hogwarts Houses - Rooms</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/showRooms.css}" rel="stylesheet"/>
+</head>
+<body th:style="'background: url(/img/background.jpg) no-repeat center center fixed;'">
+<h1><a href="/">Welcome to Hogwart Houses</a></h1>
+<h4><a href="/students">Students</a></h4>
+<div>
+    <form action="/student/add" method="post">
+        <label for="name">Name</label><br>
+        <input type="text" id="name" name="name" placeholder="John Doe"><br>
+        <label for="pet">Pet:</label>
+        <select id="pet" name="pet">
+            <option value="CAT">CAT</option>
+            <option value="RAT">RAT</option>
+            <option value="OWL">OWL</option>
+            <option value="NONE">NONE</option>
+        </select>
+        <label for="house">House:</label>
+        <select id="house" name="house">
+            <option value="GRYFFINDOR">GRYFFINDOR</option>
+            <option value="HUFFLEPUFF">HUFFLEPUFF</option>
+            <option value="RAVENCLAW">RAVENCLAW</option>
+            <option value="SLYTHERIN">SLYTHERIN</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+</body>
+</html>

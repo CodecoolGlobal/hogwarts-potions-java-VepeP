@@ -1,7 +1,9 @@
 package com.codecool.hogwartshouses.service;
 
+import com.codecool.hogwartshouses.entity.Room;
 import com.codecool.hogwartshouses.entity.Student;
 import com.codecool.hogwartshouses.model.StudentModel;
+import com.codecool.hogwartshouses.repository.RoomRepository;
 import com.codecool.hogwartshouses.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,17 +14,21 @@ import java.util.List;
 @Service
 public class StudentService {
     private final StudentRepository studentRepository;
+    private final RoomRepository roomRepository;
 
     @Autowired
-    public StudentService(StudentRepository studentRepository) {
+    public StudentService(StudentRepository studentRepository, RoomRepository roomRepository) {
         this.studentRepository = studentRepository;
+        this.roomRepository = roomRepository;
     }
 
     public List<StudentModel> getAllStudents() {
         List<StudentModel> studentModels = new ArrayList<>();
         List<Student> students = studentRepository.findAll();
+        Room room = null;
         for (Student student : students) {
-            studentModels.add(new StudentModel(student));
+            room = roomRepository.findByStudentId(student.getId());
+            studentModels.add(new StudentModel(student, room));
         }
         return studentModels;
     }
@@ -33,6 +39,7 @@ public class StudentService {
 
     public StudentModel getStudentById(long id) {
         Student student = studentRepository.findById(id);
-        return new StudentModel(student);
+        Room room = roomRepository.findByStudentId(id);
+        return new StudentModel(student, room);
     }
 }

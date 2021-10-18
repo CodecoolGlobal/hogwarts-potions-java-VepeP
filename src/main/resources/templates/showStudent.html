@@ -8,13 +8,10 @@
 <body th:style="'background: url(/img/background.jpg) no-repeat center center fixed;'">
 <h1><a href="/">Welcome to Hogwart Houses</a></h1>
 <h4><a href="/students">Students</a></h4>
-<!--
-<div th:if="${room.needsRenovation}">
-<form action="#" th:action="@{/rooms/put/{id}(id=${room.id})}" th:method="get">
-    <button type="submit" class="btn-link">Renovate room</button>
-</form>
+<div th:if="${student.roomId} < 0">
+    <a th:href="@{/students/{id}/assigneToRoom (id=${student.id})}" th:text="'Assigne to room'"></a>
 </div>
--->
+
 <div>
     <table style=" background-repeat:no-repeat; width:450px; margin:0;"
            cellpadding="0" cellspacing="0" border="0">
@@ -22,6 +19,7 @@
         <tr>
             <td>Number</td>
             <td>Name</td>
+            <td>Room Num</td>
             <td>Pet</td>
             <td>House</td>
         </tr>
@@ -30,6 +28,10 @@
         <tr>
             <td th:text="${student.id}"></td>
             <td th:text="${student.name}"></td>
+            <td>
+                <span th:if="${student.roomId < 0}" th:text="'N/A'"></span>
+                <span th:unless="${student.roomId < 0}" th:text="${student.roomId}"></span>
+            </td>
             <td th:text="${student.petType}"></td>
             <td th:text="${student.houseType}"></td>
         </tr>

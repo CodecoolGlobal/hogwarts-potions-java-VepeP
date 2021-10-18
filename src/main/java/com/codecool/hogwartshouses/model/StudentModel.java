@@ -10,12 +10,16 @@ public class StudentModel {
     private String name;
     private PetType petType;
     private HouseType houseType;
+    private long roomId;
 
-    public StudentModel(Student student) {
+    public StudentModel(Student student, Room room) {
         this.id = student.getId();
         this.name = student.getName();
         this.petType = student.getPetType();
         this.houseType = student.getHouseType();
+
+        if (room != null) this.roomId = room.getId();
+        else roomId = -1;
     }
 
     public long getId() {
@@ -48,5 +52,24 @@ public class StudentModel {
 
     public void setHouseType(HouseType houseType) {
         this.houseType = houseType;
+    }
+
+    public long getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(long roomId) {
+        this.roomId = roomId;
+    }
+
+    @Override
+    public String toString() {
+        return "StudentModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", petType=" + petType +
+                ", houseType=" + houseType +
+                ", roomId=" + roomId +
+                '}';
     }
 }
