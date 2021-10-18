@@ -14,12 +14,10 @@ import java.util.List;
 @Service
 public class RoomService {
     private final RoomRepository roomRepository;
-    private final StudentRepository studentRepository;
 
     @Autowired
-    public RoomService(RoomRepository roomRepository, StudentRepository studentRepository) {
+    public RoomService(RoomRepository roomRepository) {
         this.roomRepository = roomRepository;
-        this.studentRepository = studentRepository;
     }
 
     public List<RoomModel> getAllRooms() {
