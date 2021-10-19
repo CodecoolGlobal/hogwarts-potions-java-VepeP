@@ -1,0 +1,25 @@
+#studentActionHolder {
+    display: flex;
+    padding-left: 25px;
+}
+
+#studentActionHolder a {
+    color: darkblue;
+    font-size: 0.9em;
+}
+
+#studentDetails {
+    padding: 20px;
+}
+
+#studentDetailsTable {
+    background-repeat: no-repeat;
+    width: 30%;
+    margin: 0;
+    border: 1px solid black;
+}
+
+#studentDetailsTable th, td {
+    text-align: center;
+    padding: 8px;
+}

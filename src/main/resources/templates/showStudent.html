@@ -3,25 +3,28 @@
 <head>
     <title>Hogwarts Houses - Rooms</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link th:href="@{/css/showRooms.css}" rel="stylesheet"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+    <link th:href="@{/css/showStudent.css}" rel="stylesheet"/>
 </head>
-<body th:style="'background: url(/img/background.jpg) no-repeat center center fixed;'">
-<h1><a href="/">Welcome to Hogwart Houses</a></h1>
-<h4><a href="/students">Students</a></h4>
-<div th:if="${student.roomId} < 0">
+<body>
+<div id="navigation">
+    <p><a href="/" methods="GET">Home</a></p>
+    <p><a href="/students" methods="GET">Students</a></p>
+    <p><a href="/students/add" methods="GET">Add student</a></p>
+</div>
+<h1 id="mainHeader">Welcome to Hogwart Houses</h1>
+<div id="studentActionHolder" th:if="${student.roomId} < 0">
     <a th:href="@{/students/{id}/assignToRoom (id=${student.id})}" th:text="'Assign to room'"></a>
 </div>
-
-<div>
-    <table style=" background-repeat:no-repeat; width:450px; margin:0;"
-           cellpadding="0" cellspacing="0" border="0">
+<div id="studentDetails">
+    <table id="studentDetailsTable">
         <thead>
         <tr>
-            <td>Number</td>
-            <td>Name</td>
-            <td>Room Num</td>
-            <td>Pet</td>
-            <td>House</td>
+            <th>Number</th>
+            <th>Name</th>
+            <th>Room Num</th>
+            <th>Pet</th>
+            <th>House</th>
         </tr>
         </thead>
         <tbody>
