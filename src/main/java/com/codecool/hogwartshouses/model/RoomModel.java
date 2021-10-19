@@ -11,7 +11,9 @@ public class RoomModel {
     public RoomModel(Room room) {
         this.id = room.getId();
         this.needsRenovation = room.isNeedsRenovation();
+
         Student student = room.getStudent();
+
         if (student != null) this.resident = student.getName();
         else this.resident = "";
     }

@@ -1,24 +1,16 @@
 package com.codecool.hogwartshouses.entity;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
-@ApiModel(description = "Details about a room")
 @Entity
 @Table(name = "room")
 public class Room {
-    @ApiModelProperty(notes = "The unique id of the student")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ApiModelProperty(notes = "Whether the room needs renovation")
     private boolean needsRenovation;
 
-    @ApiModelProperty(notes = "The id of the resident")
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "student_id", referencedColumnName = "id")
     private Student student;

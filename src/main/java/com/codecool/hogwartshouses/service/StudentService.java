@@ -25,7 +25,7 @@ public class StudentService {
     public List<StudentModel> getAllStudents() {
         List<StudentModel> studentModels = new ArrayList<>();
         List<Student> students = studentRepository.findAll();
-        Room room = null;
+        Room room;
         for (Student student : students) {
             room = roomRepository.findByStudentId(student.getId());
             studentModels.add(new StudentModel(student, room));

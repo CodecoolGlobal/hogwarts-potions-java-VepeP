@@ -62,14 +62,4 @@ public class StudentModel {
         this.roomId = roomId;
     }
 
-    @Override
-    public String toString() {
-        return "StudentModel{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", petType=" + petType +
-                ", houseType=" + houseType +
-                ", roomId=" + roomId +
-                '}';
-    }
 }

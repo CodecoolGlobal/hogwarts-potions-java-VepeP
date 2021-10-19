@@ -57,16 +57,6 @@ public class StudentController {
         return getAllStudents(model);
     }
 
-/*
-
-    @PostMapping("/students/{id}/assignStudentToRoom")
-    public String assignStudentToRoomPost(@PathVariable long id, Model model) {
-        System.out.println("ITT");
-        return getAllStudents(model);
-    }
-
-*/
-
     @PostMapping("/students/{id}/assignStudentToRoom")
     public String assignStudentToRoomPost2(@PathVariable long id, @ModelAttribute Room room, Model model) {
         model.addAttribute("room", room);

@@ -21,7 +21,7 @@ public class RoomService {
 
     public List<RoomModel> getAllRooms() {
         List<RoomModel> roomModels = new ArrayList<>();
-        List<Room> rooms = roomRepository.findAll();
+        List<Room> rooms = roomRepository.findAllByOrderByIdAsc();
         for (Room room : rooms) {
             roomModels.add(new RoomModel(room));
         }
@@ -57,7 +57,6 @@ public class RoomService {
     }
 
     public List<RoomModel> getAllRoomsWithoutCatOrOwl() {
-        //TODO
         List<RoomModel> roomModels = new ArrayList<>();
         List<PetType> forbiddenPets = List.of(PetType.CAT, PetType.OWL);
         List<Room> rooms = roomRepository.findAllByStudentNullOrStudentPetTypeNotInOrderByIdAsc(forbiddenPets);
