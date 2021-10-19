@@ -75,8 +75,8 @@ public class StudentController {
     }
 
     @PostMapping("/student/add")
-    public String insertStudent(@ModelAttribute NewStudentModel newStudentModel) {
+    public String insertStudent(@ModelAttribute NewStudentModel newStudentModel, Model model) {
         studentService.insertStudent(new Student(newStudentModel));
-        return "index";
+        return getAllStudents(model);
     }
 }
