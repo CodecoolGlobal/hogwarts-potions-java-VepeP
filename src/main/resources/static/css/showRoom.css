@@ -1,0 +1,42 @@
+#roomActionHolder {
+    display: flex;
+    padding-left: 10px;
+}
+
+#removeBtn {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    color: darkblue;
+    font-size: 0.9em;
+    font-family: Serif, sans-serif;
+}
+
+#renovateBtn {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    color: darkblue;
+    font-size: 0.9em;
+    font-family: Serif, sans-serif;
+}
+
+#roomDetails {
+    padding: 20px;
+}
+
+#roomDetailsTable {
+    background-repeat: no-repeat;
+    width: 20%;
+    margin: 0;
+    border: 1px solid black;
+}
+
+#roomDetailsTable th, td {
+    text-align: center;
+    padding: 8px;
+}
