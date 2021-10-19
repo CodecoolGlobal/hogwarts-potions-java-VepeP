@@ -1,10 +1,9 @@
 package com.codecool.hogwartshouses.service;
 
 import com.codecool.hogwartshouses.entity.Room;
-import com.codecool.hogwartshouses.entity.Student;
+import com.codecool.hogwartshouses.entity.types.PetType;
 import com.codecool.hogwartshouses.model.RoomModel;
 import com.codecool.hogwartshouses.repository.RoomRepository;
-import com.codecool.hogwartshouses.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -51,6 +50,17 @@ public class RoomService {
     public List<RoomModel> getAllAvailableRooms() {
         List<RoomModel> roomModels = new ArrayList<>();
         List<Room> rooms = roomRepository.findAllByStudentNullOrderByIdAsc();
+        for (Room room : rooms) {
+            roomModels.add(new RoomModel(room));
+        }
+        return roomModels;
+    }
+
+    public List<RoomModel> getAllRoomsWithoutCatOrOwl() {
+        //TODO
+        List<RoomModel> roomModels = new ArrayList<>();
+        List<PetType> forbiddenPets = List.of(PetType.CAT, PetType.OWL);
+        List<Room> rooms = roomRepository.findAllByStudentNullOrStudentPetTypeNotInOrderByIdAsc(forbiddenPets);
         for (Room room : rooms) {
             roomModels.add(new RoomModel(room));
         }

@@ -60,4 +60,11 @@ public class RoomController {
         roomService.updateRoomById(id);
         return getRoomById(id, model);
     }
+
+    @GetMapping("/rooms/rat-owner")
+    public String getRoomsWithoutCatOrOwl(Model model) {
+        List<RoomModel> rooms = roomService.getAllRoomsWithoutCatOrOwl();
+        model.addAttribute("rooms", rooms);
+        return "showAvailableRooms";
+    }
 }
