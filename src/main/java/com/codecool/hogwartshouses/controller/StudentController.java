@@ -4,6 +4,7 @@ import com.codecool.hogwartshouses.entity.Room;
 import com.codecool.hogwartshouses.entity.Student;
 import com.codecool.hogwartshouses.entity.types.HouseType;
 import com.codecool.hogwartshouses.entity.types.PetType;
+import com.codecool.hogwartshouses.model.NewStudentModel;
 import com.codecool.hogwartshouses.model.RoomModel;
 import com.codecool.hogwartshouses.model.StudentModel;
 import com.codecool.hogwartshouses.service.RoomService;
@@ -64,13 +65,18 @@ public class StudentController {
     }
 
     @GetMapping("/students/add")
-    public String addStudent() {
+    public String addStudent(Model model) {
+        HouseType[] houseTypes = HouseType.values();
+        PetType[] petTypes = PetType.values();
+        model.addAttribute("houseTypes", houseTypes);
+        model.addAttribute("petTypes", petTypes);
+        model.addAttribute("newStudentModel", new NewStudentModel());
         return "addStudent";
     }
 
     @PostMapping("/student/add")
-    public String insertStudent() {
-        studentService.insertStudent(new Student("Test Elek", PetType.NONE, HouseType.GRYFFINDOR));
+    public String insertStudent(@ModelAttribute NewStudentModel newStudentModel) {
+        studentService.insertStudent(new Student(newStudentModel));
         return "index";
     }
 }

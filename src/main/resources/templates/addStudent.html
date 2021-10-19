@@ -9,24 +9,26 @@
 <h1><a href="/">Welcome to Hogwart Houses</a></h1>
 <h4><a href="/students">Students</a></h4>
 <div>
-    <form action="/student/add" method="post">
-        <label for="name">Name</label><br>
-        <input type="text" id="name" name="name" placeholder="John Doe"><br>
-        <label for="pet">Pet:</label>
-        <select id="pet" name="pet">
-            <option value="CAT">CAT</option>
-            <option value="RAT">RAT</option>
-            <option value="OWL">OWL</option>
-            <option value="NONE">NONE</option>
-        </select>
+    <form action="#" th:action="@{/student/add}" th:object="${newStudentModel}" method="post">
+        <label for="name">Name: </label>
+        <input type="text" id="name" name="name" th:field="*{name}" placeholder="John Doe"><br>
+
+        <label for="pet">Pet: </label>
+        <select name="pet" id="pet" th:field="*{petType}">
+            <option th:each="petType : ${petTypes}"
+                    th:text="${petType}"
+                    th:value="${petType}">
+        </select><br>
+
         <label for="house">House:</label>
-        <select id="house" name="house">
-            <option value="GRYFFINDOR">GRYFFINDOR</option>
-            <option value="HUFFLEPUFF">HUFFLEPUFF</option>
-            <option value="RAVENCLAW">RAVENCLAW</option>
-            <option value="SLYTHERIN">SLYTHERIN</option>
-        </select>
-        <input type="submit" value="Submit">
+        <select name="house" id="house" th:field="*{houseType}">
+            <option th:each="houseType : ${houseTypes}"
+                    th:text="${houseType}"
+                    th:value="${houseType}">
+        </select><br>
+
+        <input type="submit" value="Add student">
+        <input type="reset" value="Reset" />
     </form>
 </div>
 </body>

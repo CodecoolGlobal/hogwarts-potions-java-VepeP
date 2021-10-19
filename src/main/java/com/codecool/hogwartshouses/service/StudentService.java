@@ -2,6 +2,7 @@ package com.codecool.hogwartshouses.service;
 
 import com.codecool.hogwartshouses.entity.Room;
 import com.codecool.hogwartshouses.entity.Student;
+import com.codecool.hogwartshouses.model.NewStudentModel;
 import com.codecool.hogwartshouses.model.StudentModel;
 import com.codecool.hogwartshouses.repository.RoomRepository;
 import com.codecool.hogwartshouses.repository.StudentRepository;

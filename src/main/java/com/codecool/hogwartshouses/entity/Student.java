@@ -2,6 +2,7 @@ package com.codecool.hogwartshouses.entity;
 
 import com.codecool.hogwartshouses.entity.types.HouseType;
 import com.codecool.hogwartshouses.entity.types.PetType;
+import com.codecool.hogwartshouses.model.NewStudentModel;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.validation.constraints.NotNull;
@@ -34,6 +35,12 @@ public class Student {
         this.name = name;
         this.petType = petType;
         this.houseType = houseType;
+    }
+
+    public Student(NewStudentModel newStudentModel) {
+        this.name = newStudentModel.getName();
+        this.petType = newStudentModel.getPetType();
+        this.houseType = newStudentModel.getHouseType();
     }
 
     public long getId() {
