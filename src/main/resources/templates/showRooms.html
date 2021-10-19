@@ -3,23 +3,33 @@
 <head>
     <title>Hogwarts Houses - Rooms</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
     <link th:href="@{/css/showRooms.css}" rel="stylesheet"/>
 </head>
-<body th:style="'background: url(/img/background.jpg) no-repeat center center fixed;'">
-<h1><a href="/">Welcome to Hogwart Houses</a></h1>
+<body>
+<div id="navigation">
+    <p><a href="/" methods="GET">Home</a></p>
+    <p><a href="/rooms" methods="GET">Rooms</a></p>
+    <p><a href="/rooms/available" methods="GET">Available rooms</a></p>
+    <p><a href="/rooms/rat-owner" methods="GET">Rooms safe for rat owners</a></p>
+    <form action="/rooms" method="post">
+        <p><input id="addBtn" type="submit" value="Add room"></p>
+    </form>
+</div>
+<h1 id="mainHeader">Welcome to Hogwart Houses</h1>
 <div>
-    <l th:each="room: ${rooms}">
+    <ul th:each="room: ${rooms}">
         <li th:if="${room.resident != ''}">
-            <span th:text="'Room #'"></span>
-            <a th:href="@{/rooms/{id}(id=${room.id})}" th:text="${room.id}"></a>
+            <span th:text="'Room'"></span>
+            <a th:href="@{/rooms/{id}(id=${room.id})}" th:text="'#' + ${room.id}"></a>
             <span th:text="' owned by ' + ${room.resident}"></span>
         </li>
         <li th:unless="${room.resident != ''}">
-            <span th:text="'Room #'"></span>
-            <a th:href="@{/rooms/{id}(id=${room.id})}" th:text="${room.id}"></a>
+            <span th:text="'Room'"></span>
+            <a th:href="@{/rooms/{id}(id=${room.id})}" th:text="'#' + ${room.id}"></a>
             <span th:text="' is empty'"></span>
         </li>
-    </l>
+    </ul>
 </div>
 </body>
 </html>
