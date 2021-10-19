@@ -1,0 +1,43 @@
+body {
+    background-image: url("../img/background.jpg");
+    height: 100%;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#navigation {
+    display: flex;
+}
+
+p {
+    font-size: 1.2em;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#addBtn {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    color: darkred;
+    font-size: 1em;
+    font-family: Serif, sans-serif;
+}
+
+#mainHeader {
+    text-align: center;
+    color: #2b2828;
+    margin-top: 0;
+}
+
+a:link, a:visited, a:hover, a:active {
+    color: darkred;
+    text-decoration: none;
+    text-align: center;
+    font-family: Serif, sans-serif;
+}

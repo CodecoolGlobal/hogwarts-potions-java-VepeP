@@ -3,19 +3,21 @@
 <head>
     <title>Hogwarts Houses</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
     <link th:href="@{/css/index.css}" rel="stylesheet"/>
 </head>
-<body th:style="'background: url(/img/background.jpg) no-repeat center center fixed;'">
-<h1>Welcome to Hogwart Houses</h1>
-<div>
+<body>
+<div id="navigation">
+    <p><a href="/" methods="GET">Home</a></p>
     <p><a href="/rooms" methods="GET">Rooms</a></p>
     <p><a href="/rooms/available" methods="GET">Available rooms</a></p>
     <p><a href="/rooms/rat-owner" methods="GET">Rooms safe for rat owners</a></p>
+    <form action="/rooms" method="post">
+        <p><input id="addBtn" type="submit" value="Add room"></p>
+    </form>
     <p><a href="/students" methods="GET">Students</a></p>
     <p><a href="/students/add" methods="GET">Add student</a></p>
-    <form action="/rooms" method="post">
-        <button type="submit" class="btn-link">Add room</button>
-    </form>
 </div>
+<h1 id="mainHeader">Welcome to Hogwart Houses</h1>
 </body>
 </html>
