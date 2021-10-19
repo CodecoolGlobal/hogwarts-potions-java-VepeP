@@ -42,4 +42,11 @@ public class StudentService {
         Room room = roomRepository.findByStudentId(id);
         return new StudentModel(student, room);
     }
+
+    public void assignStudentToRoom(long studentId, long roomId) {
+        Student student = studentRepository.findById(studentId);
+        Room room = roomRepository.findById(roomId);
+        room.setStudent(student);
+        roomRepository.save(room);
+    }
 }

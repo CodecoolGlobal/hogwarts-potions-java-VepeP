@@ -9,7 +9,7 @@
 <h1><a href="/">Welcome to Hogwart Houses</a></h1>
 <h4><a href="/students">Students</a></h4>
 <div th:if="${student.roomId} < 0">
-    <a th:href="@{/students/{id}/assigneToRoom (id=${student.id})}" th:text="'Assigne to room'"></a>
+    <a th:href="@{/students/{id}/assignToRoom (id=${student.id})}" th:text="'Assign to room'"></a>
 </div>
 
 <div>
