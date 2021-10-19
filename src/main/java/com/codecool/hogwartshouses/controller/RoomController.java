@@ -42,9 +42,9 @@ public class RoomController {
     }
 
     @PostMapping("/rooms")
-    public String insertRoom() {
+    public String insertRoom(Model model) {
         roomService.insertRoom(new Room(false));
-        return "index";
+        return getAllRooms(model);
     }
 
     // https://stackoverflow.com/questions/24256051/delete-or-put-methods-in-thymeleaf
