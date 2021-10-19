@@ -1,7 +1,5 @@
 package com.codecool.hogwartshouses.model;
 
-import com.codecool.hogwartshouses.entity.Room;
-import com.codecool.hogwartshouses.entity.Student;
 import com.codecool.hogwartshouses.entity.types.HouseType;
 import com.codecool.hogwartshouses.entity.types.PetType;
 
@@ -34,12 +32,4 @@ public class NewStudentModel {
         this.houseType = houseType;
     }
 
-    @Override
-    public String toString() {
-        return "NewStudentModel{" +
-                "name='" + name + '\'' +
-                ", petType=" + petType +
-                ", houseType=" + houseType +
-                '}';
-    }
 }
