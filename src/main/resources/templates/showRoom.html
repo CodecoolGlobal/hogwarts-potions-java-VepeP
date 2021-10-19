@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>Hogwarts Houses - Rooms</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -12,9 +12,9 @@
     <button type="submit" class="btn-link">Remove room</button>
 </form>
 <div th:if="${room.needsRenovation}">
-<form action="#" th:action="@{/rooms/put/{id}(id=${room.id})}" th:method="get">
-    <button type="submit" class="btn-link">Renovate room</button>
-</form>
+    <form action="#" th:action="@{/rooms/put/{id}(id=${room.id})}" th:method="get">
+        <button type="submit" class="btn-link">Renovate room</button>
+    </form>
 </div>
 <div>
     <table style=" background-repeat:no-repeat; width:450px; margin:0;"
