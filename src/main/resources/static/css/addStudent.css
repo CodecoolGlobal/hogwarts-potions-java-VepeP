@@ -1,0 +1,19 @@
+#newStudentForm{
+    padding: 20px;
+}
+
+#newStudentFormTable {
+    background-repeat: no-repeat;
+    width: 30%;
+    margin: 5px;
+}
+
+#newStudentFormTable th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+.required:after {
+    content:"*";
+    color: red;
+}

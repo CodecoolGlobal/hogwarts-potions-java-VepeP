@@ -3,32 +3,59 @@
 <head>
     <title>Hogwarts Houses - Rooms</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link th:href="@{/css/showRooms.css}" rel="stylesheet"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+    <link th:href="@{/css/addStudent.css}" rel="stylesheet"/>
 </head>
-<body th:style="'background: url(/img/background.jpg) no-repeat center center fixed;'">
-<h1><a href="/">Welcome to Hogwart Houses</a></h1>
-<h4><a href="/students">Students</a></h4>
-<div>
+<body>
+<div id="navigation">
+    <p><a href="/" methods="GET">Home</a></p>
+    <p><a href="/students" methods="GET">Students</a></p>
+</div>
+<h1 id="mainHeader">Welcome to Hogwart Houses</h1>
+<div id="newStudentForm">
     <form action="#" th:action="@{/student/add}" th:object="${newStudentModel}" method="post">
-        <label for="name">Name: </label>
-        <input type="text" id="name" name="name" th:field="*{name}" placeholder="John Doe"><br>
-
-        <label for="pet">Pet: </label>
-        <select name="pet" id="pet" th:field="*{petType}">
-            <option th:each="petType : ${petTypes}"
-                    th:text="${petType}"
-                    th:value="${petType}">
-        </select><br>
-
-        <label for="house">House:</label>
-        <select name="house" id="house" th:field="*{houseType}">
-            <option th:each="houseType : ${houseTypes}"
-                    th:text="${houseType}"
-                    th:value="${houseType}">
-        </select><br>
-
-        <input type="submit" value="Add student">
-        <input type="reset" value="Reset" />
+        <table id="newStudentFormTable">
+            <tr>
+                <td>
+                    <label class="required" for="name">Name: </label>
+                </td>
+                <td>
+                    <input type="text" id="name" name="name" th:field="*{name}" placeholder="John Doe"  th:required="true">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="required"  for="pet">Pet: </label>
+                <td>
+                    <select name="pet" id="pet" th:field="*{petType}" th:required="true">
+                        <option th:value="${null}" selected hidden></option>
+                        <option th:each="petType : ${petTypes}"
+                                th:text="${petType}"
+                                th:value="${petType}">
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="required"  for="house">House:</label>
+                <td>
+                    <select name="house" id="house" th:field="*{houseType}" th:required="true">
+                        <option th:value="${null}" selected hidden></option>
+                        <option th:each="houseType : ${houseTypes}"
+                                th:text="${houseType}"
+                                th:value="${houseType}">
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Add student">
+                </td>
+                <td>
+                    <input type="reset" value="Reset"/>
+                </td>
+            </tr>
+        </table>
     </form>
 </div>
 </body>
