@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Hogwarts Houses - Rooms</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+    <link th:href="@{/css/addRoom.css}" rel="stylesheet"/>
+</head>
+<body>
+<div id="navigation">
+    <p><a href="/" methods="GET">Home</a></p>
+    <p><a href="/rooms" methods="GET">Rooms</a></p>
+</div>
+<h1 id="mainHeader">Welcome to Hogwart Houses</h1>
+<div id="newRoomForm">
+    <form action="#" th:action="@{/rooms}" th:object="${newRoomModel}" method="post">
+        <table id="newRoomFormTable">
+            <tr>
+                <td><label class="required" for="needRenovation">Needs renovation: </label></td>
+                <td>
+                    <select name="needRenovation" id="needRenovation" th:field="*{needRenovation}" th:required="true">
+                        <option th:value="1" th:text="'YES'"></option>
+                        <option th:value="0" th:text="'NO'" selected>NO</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label class="required" for="capacity">Capacity:</label></td>
+                <td><input type="number" name="capacity" id="capacity" placeholder="1" value="1" min="1" max="10" required th:field="*{capacity}"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Add room"></td>
+                <td><input type="reset" value="Reset"/></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

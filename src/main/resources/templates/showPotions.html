@@ -4,20 +4,20 @@
     <title>Hogwarts Houses - Rooms</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link th:href="@{/css/main.css}" rel="stylesheet"/>
-    <link th:href="@{/css/showAvailableRooms.css}" rel="stylesheet"/>
+    <link th:href="@{/css/showRooms.css}" rel="stylesheet"/>
 </head>
 <body>
 <div id="navigation">
     <p><a href="/" methods="GET">Home</a></p>
-    <p><a href="/rooms" methods="GET">Rooms</a></p>
-    <p><a href="/rooms/available" methods="GET">Available rooms</a></p>
-    <p><a href="/rooms/rat-owner" methods="GET">Rooms safe for rat owners</a></p>
-    <p><a href="/rooms/add" methods="GET">Add room</a></p>
 </div>
 <h1 id="mainHeader">Welcome to Hogwart Houses</h1>
 <div>
-    <ul th:each="room: ${rooms}">
-        <li th:text="'Room #' + ${room.id}"></li>
+    <ul th:each="potion: ${potions}">
+        <li>
+            <span th:text="'Potion'"></span>
+            <a th:href="@{/potions/{id}(id=${potion.id})}" th:text="'#' + ${potion.id} + ','"></a>
+            <span th:text="'name: ' + ${potion.name}"></span>
+        </li>
     </ul>
 </div>
 </body>

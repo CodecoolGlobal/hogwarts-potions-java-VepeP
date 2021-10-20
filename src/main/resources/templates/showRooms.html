@@ -12,19 +12,17 @@
     <p><a href="/rooms" methods="GET">Rooms</a></p>
     <p><a href="/rooms/available" methods="GET">Available rooms</a></p>
     <p><a href="/rooms/rat-owner" methods="GET">Rooms safe for rat owners</a></p>
-    <form action="/rooms" method="post">
-        <p><input id="addBtn" type="submit" value="Add room"></p>
-    </form>
+    <p><a href="/rooms/add" methods="GET">Add room</a></p>
 </div>
 <h1 id="mainHeader">Welcome to Hogwart Houses</h1>
 <div>
     <ul th:each="room: ${rooms}">
-        <li th:if="${room.resident != ''}">
+        <li th:if="${room.resident != null}">
             <span th:text="'Room'"></span>
             <a th:href="@{/rooms/{id}(id=${room.id})}" th:text="'#' + ${room.id}"></a>
             <span th:text="' owned by ' + ${room.resident}"></span>
         </li>
-        <li th:unless="${room.resident != ''}">
+        <li th:unless="${room.resident != null}">
             <span th:text="'Room'"></span>
             <a th:href="@{/rooms/{id}(id=${room.id})}" th:text="'#' + ${room.id}"></a>
             <span th:text="' is empty'"></span>

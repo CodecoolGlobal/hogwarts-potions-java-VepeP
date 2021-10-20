@@ -1,0 +1,19 @@
+#newRoomForm{
+    padding: 20px;
+}
+
+#newRoomFormTable {
+    background-repeat: no-repeat;
+    width: 30%;
+    margin: 5px;
+}
+
+#newRoomFormTable th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+.required:after {
+    content:"*";
+    color: red;
+}

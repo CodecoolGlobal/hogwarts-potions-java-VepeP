@@ -12,9 +12,7 @@
     <p><a href="/rooms" methods="GET">Rooms</a></p>
     <p><a href="/rooms/available" methods="GET">Available rooms</a></p>
     <p><a href="/rooms/rat-owner" methods="GET">Rooms safe for rat owners</a></p>
-    <form action="/rooms" method="post">
-        <p><input id="addBtn" type="submit" value="Add room"></p>
-    </form>
+    <p><a href="/rooms/add" methods="GET">Add room</a></p>
 </div>
 <h1 id="mainHeader">Welcome to Hogwart Houses</h1>
 <div id="roomActionHolder">
@@ -33,13 +31,15 @@
         <tr>
             <th>Number</th>
             <th>Needs renovation</th>
-            <th>Resident</th>
+            <th>Capacity</th>
+            <th>Residents</th>
         </tr>
         </thead>
         <tbody>
         <tr>
             <td th:text="${room.id}"></td>
             <td th:text="${room.needsRenovation} ? 'yes' : 'no'"></td>
+            <td th:text="${room.capacity}"></td>
             <td th:text="${room.resident} ? ${room.resident} : '-'"></td>
         </tr>
         </tbody>
