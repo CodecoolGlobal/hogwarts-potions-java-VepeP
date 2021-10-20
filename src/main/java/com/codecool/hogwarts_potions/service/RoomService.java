@@ -1,9 +1,9 @@
-package com.codecool.hogwartshouses.service;
+package com.codecool.hogwarts_potions.service;
 
-import com.codecool.hogwartshouses.entity.Room;
-import com.codecool.hogwartshouses.entity.types.PetType;
-import com.codecool.hogwartshouses.model.RoomModel;
-import com.codecool.hogwartshouses.repository.RoomRepository;
+import com.codecool.hogwarts_potions.entity.Room;
+import com.codecool.hogwarts_potions.entity.types.PetType;
+import com.codecool.hogwarts_potions.model.RoomModel;
+import com.codecool.hogwarts_potions.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

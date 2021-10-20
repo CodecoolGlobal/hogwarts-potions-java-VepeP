@@ -1,4 +1,4 @@
-package com.codecool.hogwartshouses.entity;
+package com.codecool.hogwarts_potions.entity;
 
 import javax.persistence.*;
 

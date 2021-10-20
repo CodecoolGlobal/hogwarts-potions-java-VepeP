@@ -1,7 +1,7 @@
-package com.codecool.hogwartshouses.model;
+package com.codecool.hogwarts_potions.model;
 
-import com.codecool.hogwartshouses.entity.Room;
-import com.codecool.hogwartshouses.entity.Student;
+import com.codecool.hogwarts_potions.entity.Room;
+import com.codecool.hogwarts_potions.entity.Student;
 
 public class RoomModel {
     private long id;

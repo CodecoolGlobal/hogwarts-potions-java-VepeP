@@ -1,7 +1,7 @@
-package com.codecool.hogwartshouses.model;
+package com.codecool.hogwarts_potions.model;
 
-import com.codecool.hogwartshouses.entity.types.HouseType;
-import com.codecool.hogwartshouses.entity.types.PetType;
+import com.codecool.hogwarts_potions.entity.types.HouseType;
+import com.codecool.hogwarts_potions.entity.types.PetType;
 
 public class NewStudentModel {
     private String name;

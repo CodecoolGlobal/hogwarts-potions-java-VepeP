@@ -1,14 +1,14 @@
-package com.codecool.hogwartshouses.controller;
+package com.codecool.hogwarts_potions.controller;
 
-import com.codecool.hogwartshouses.entity.Room;
-import com.codecool.hogwartshouses.entity.Student;
-import com.codecool.hogwartshouses.entity.types.HouseType;
-import com.codecool.hogwartshouses.entity.types.PetType;
-import com.codecool.hogwartshouses.model.NewStudentModel;
-import com.codecool.hogwartshouses.model.RoomModel;
-import com.codecool.hogwartshouses.model.StudentModel;
-import com.codecool.hogwartshouses.service.RoomService;
-import com.codecool.hogwartshouses.service.StudentService;
+import com.codecool.hogwarts_potions.entity.Room;
+import com.codecool.hogwarts_potions.entity.Student;
+import com.codecool.hogwarts_potions.entity.types.HouseType;
+import com.codecool.hogwarts_potions.entity.types.PetType;
+import com.codecool.hogwarts_potions.model.NewStudentModel;
+import com.codecool.hogwarts_potions.model.RoomModel;
+import com.codecool.hogwarts_potions.model.StudentModel;
+import com.codecool.hogwarts_potions.service.RoomService;
+import com.codecool.hogwarts_potions.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

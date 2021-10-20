@@ -1,4 +1,4 @@
-package com.codecool.hogwartshouses.controller;
+package com.codecool.hogwarts_potions.controller;
 
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;

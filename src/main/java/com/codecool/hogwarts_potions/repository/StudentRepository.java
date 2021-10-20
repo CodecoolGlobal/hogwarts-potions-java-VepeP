@@ -1,6 +1,6 @@
-package com.codecool.hogwartshouses.repository;
+package com.codecool.hogwarts_potions.repository;
 
-import com.codecool.hogwartshouses.entity.Student;
+import com.codecool.hogwarts_potions.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

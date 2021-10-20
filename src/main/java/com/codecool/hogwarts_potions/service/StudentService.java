@@ -1,11 +1,10 @@
-package com.codecool.hogwartshouses.service;
+package com.codecool.hogwarts_potions.service;
 
-import com.codecool.hogwartshouses.entity.Room;
-import com.codecool.hogwartshouses.entity.Student;
-import com.codecool.hogwartshouses.model.NewStudentModel;
-import com.codecool.hogwartshouses.model.StudentModel;
-import com.codecool.hogwartshouses.repository.RoomRepository;
-import com.codecool.hogwartshouses.repository.StudentRepository;
+import com.codecool.hogwarts_potions.entity.Room;
+import com.codecool.hogwarts_potions.entity.Student;
+import com.codecool.hogwarts_potions.model.StudentModel;
+import com.codecool.hogwarts_potions.repository.RoomRepository;
+import com.codecool.hogwarts_potions.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

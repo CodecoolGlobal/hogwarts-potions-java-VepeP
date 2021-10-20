@@ -1,8 +1,8 @@
-package com.codecool.hogwartshouses.entity;
+package com.codecool.hogwarts_potions.entity;
 
-import com.codecool.hogwartshouses.entity.types.HouseType;
-import com.codecool.hogwartshouses.entity.types.PetType;
-import com.codecool.hogwartshouses.model.NewStudentModel;
+import com.codecool.hogwarts_potions.entity.types.HouseType;
+import com.codecool.hogwarts_potions.entity.types.PetType;
+import com.codecool.hogwarts_potions.model.NewStudentModel;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.validation.constraints.NotNull;
