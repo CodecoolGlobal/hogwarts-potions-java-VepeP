@@ -1,6 +1,7 @@
 package com.codecool.hogwarts_potions.service;
 
 import com.codecool.hogwarts_potions.entity.Room;
+import com.codecool.hogwarts_potions.entity.Student;
 import com.codecool.hogwarts_potions.entity.types.PetType;
 import com.codecool.hogwarts_potions.model.RoomModel;
 import com.codecool.hogwarts_potions.repository.RoomRepository;
@@ -49,9 +50,10 @@ public class RoomService {
 
     public List<RoomModel> getAllAvailableRooms() {
         List<RoomModel> roomModels = new ArrayList<>();
-        List<Room> rooms = roomRepository.findAllByStudentNullOrderByIdAsc();
+        List<Room> rooms = roomRepository.findAllByOrderByIdAsc();
         for (Room room : rooms) {
-            roomModels.add(new RoomModel(room));
+            if (room.getStudent() != null)
+                roomModels.add(new RoomModel(room));
         }
         return roomModels;
     }
@@ -59,10 +61,19 @@ public class RoomService {
     public List<RoomModel> getAllRoomsWithoutCatOrOwl() {
         List<RoomModel> roomModels = new ArrayList<>();
         List<PetType> forbiddenPets = List.of(PetType.CAT, PetType.OWL);
-        List<Room> rooms = roomRepository.findAllByStudentNullOrStudentPetTypeNotInOrderByIdAsc(forbiddenPets);
+        List<Room> rooms = roomRepository.findAllByOrderByIdAsc();
         for (Room room : rooms) {
-            roomModels.add(new RoomModel(room));
+            List<Student> students = room.getStudent();
+            if (students != null && studentsDontHaveCatsOrOwls(students, forbiddenPets))
+                roomModels.add(new RoomModel(room));
         }
         return roomModels;
+    }
+
+    private boolean studentsDontHaveCatsOrOwls(List<Student> students, List<PetType> forbiddenPets) {
+        for (Student student : students)
+            if (forbiddenPets.contains(student.getPetType()))
+                return false;
+        return true;
     }
 }

@@ -27,7 +27,7 @@ public class StudentService {
         List<Student> students = studentRepository.findAll();
         Room room;
         for (Student student : students) {
-            room = roomRepository.findByStudentId(student.getId());
+            room = student.getRoom();
             studentModels.add(new StudentModel(student, room));
         }
         return studentModels;
@@ -39,14 +39,14 @@ public class StudentService {
 
     public StudentModel getStudentById(long id) {
         Student student = studentRepository.findById(id);
-        Room room = roomRepository.findByStudentId(id);
+        Room room = student.getRoom();
         return new StudentModel(student, room);
     }
 
     public void assignStudentToRoom(long studentId, long roomId) {
         Student student = studentRepository.findById(studentId);
         Room room = roomRepository.findById(roomId);
-        room.setStudent(student);
+        room.addStudent(student);
         roomRepository.save(room);
     }
 }

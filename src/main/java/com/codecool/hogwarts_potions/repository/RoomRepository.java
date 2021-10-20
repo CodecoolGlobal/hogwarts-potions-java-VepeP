@@ -11,12 +11,6 @@ public interface RoomRepository extends JpaRepository<Room, Long> {
 
     List<Room> findAllByOrderByIdAsc();
 
-    List<Room> findAllByStudentNullOrderByIdAsc();
-
     Room findById(long id);
-
-    Room findByStudentId(long id);
-
-    List<Room> findAllByStudentNullOrStudentPetTypeNotInOrderByIdAsc(Collection<PetType> pets);
 
 }

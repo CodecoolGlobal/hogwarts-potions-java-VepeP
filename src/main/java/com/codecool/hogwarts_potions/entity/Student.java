@@ -28,6 +28,11 @@ public class Student {
 
     private HouseType houseType;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinColumn(name = "room_id",  referencedColumnName = "id",
+            insertable = false, updatable = false)
+    private Room room;
+
     public Student() {
     }
 
@@ -81,5 +86,13 @@ public class Student {
 
     public void setHouseType(HouseType houseType) {
         this.houseType = houseType;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }
