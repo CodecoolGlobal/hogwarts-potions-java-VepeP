@@ -2,6 +2,7 @@ package com.codecool.hogwarts_potions.service;
 
 import com.codecool.hogwarts_potions.entity.Room;
 import com.codecool.hogwarts_potions.entity.Student;
+import com.codecool.hogwarts_potions.model.AssignRoomModel;
 import com.codecool.hogwarts_potions.model.StudentModel;
 import com.codecool.hogwarts_potions.repository.RoomRepository;
 import com.codecool.hogwarts_potions.repository.StudentRepository;
@@ -43,9 +44,9 @@ public class StudentService {
         return new StudentModel(student, room);
     }
 
-    public void assignStudentToRoom(long studentId, long roomId) {
-        Student student = studentRepository.findById(studentId);
-        Room room = roomRepository.findById(roomId);
+    public void assignStudentToRoom(AssignRoomModel assignRoomModel) {
+        Student student = studentRepository.findById(assignRoomModel.getStudentId());
+        Room room = roomRepository.findById(assignRoomModel.getRoomId());
         room.addStudent(student);
         roomRepository.save(room);
     }

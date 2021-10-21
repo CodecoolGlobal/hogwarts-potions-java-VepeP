@@ -4,6 +4,7 @@ import com.codecool.hogwarts_potions.entity.Room;
 import com.codecool.hogwarts_potions.entity.Student;
 import com.codecool.hogwarts_potions.entity.types.HouseType;
 import com.codecool.hogwarts_potions.entity.types.PetType;
+import com.codecool.hogwarts_potions.model.AssignRoomModel;
 import com.codecool.hogwarts_potions.model.NewStudentModel;
 import com.codecool.hogwarts_potions.model.RoomModel;
 import com.codecool.hogwarts_potions.model.StudentModel;
@@ -42,28 +43,6 @@ public class StudentController {
         return "showStudent";
     }
 
-
-    @GetMapping("/students/{id}/assignToRoom")
-    public String assignStudentToRoomList(@PathVariable long id, Model model) {
-        StudentModel student = studentService.getStudentById(id);
-        List<RoomModel> rooms = roomService.getAllAvailableRooms();
-        model.addAttribute("student", student);
-        model.addAttribute("rooms", rooms);
-        return "assignStudentToRoom";
-    }
-
-    @GetMapping("/students/{studentId}/assignStudentToRoom")
-    public String assignStudentToRoom(@PathVariable long studentId, @RequestParam long roomId, Model model) {
-        studentService.assignStudentToRoom(studentId, roomId);
-        return getAllStudents(model);
-    }
-
-    @PostMapping("/students/{id}/assignStudentToRoom")
-    public String assignStudentToRoomPost2(@PathVariable long id, @ModelAttribute Room room, Model model) {
-        model.addAttribute("room", room);
-        return getStudentById(id, model);
-    }
-
     @GetMapping("/students/add")
     public String addStudent(Model model) {
         HouseType[] houseTypes = HouseType.values();
@@ -72,6 +51,22 @@ public class StudentController {
         model.addAttribute("petTypes", petTypes);
         model.addAttribute("newStudentModel", new NewStudentModel());
         return "addStudent";
+    }
+
+    @GetMapping("/students/{id}/assignToRoom")
+    public String assignStudentToRoomList(@PathVariable long id, Model model) {
+        StudentModel student = studentService.getStudentById(id);
+        List<RoomModel> rooms = roomService.getAllAvailableRooms();
+        model.addAttribute("student", student);
+        model.addAttribute("rooms", rooms);
+        model.addAttribute("assignRoomModel", new AssignRoomModel());
+        return "assignStudentToRoom";
+    }
+
+    @PostMapping("/students/{studentId}/assignToRoom")
+    public String assignStudentToRoom(@ModelAttribute AssignRoomModel assignRoomModel, Model model) {
+        studentService.assignStudentToRoom(assignRoomModel);
+        return getAllStudents(model);
     }
 
     @PostMapping("/student/add")
