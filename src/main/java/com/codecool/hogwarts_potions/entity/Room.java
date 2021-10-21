@@ -75,4 +75,9 @@ public class Room {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
+
+    public boolean hasEmptyBed(){
+        int numOfStudents = students == null ? 0 : students.size();
+        return numOfStudents < capacity;
+    }
 }

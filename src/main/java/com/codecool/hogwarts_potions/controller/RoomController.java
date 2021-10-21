@@ -46,6 +46,13 @@ public class RoomController {
         return "showAvailableRooms";
     }
 
+    @GetMapping("/rooms/rat-owner")
+    public String getRoomsWithoutCatOrOwl(Model model) {
+        List<RoomModel> rooms = roomService.getAllRoomsWithoutCatOrOwl();
+        model.addAttribute("rooms", rooms);
+        return "showAvailableRooms";
+    }
+
     // https://stackoverflow.com/questions/24256051/delete-or-put-methods-in-thymeleaf
     @GetMapping("/rooms/delete/{id}")
     public String deleteRoomById(@PathVariable long id, Model model) {
@@ -58,13 +65,6 @@ public class RoomController {
     public String putRoomById(@PathVariable long id, Model model) {
         roomService.updateRoomById(id);
         return getRoomById(id, model);
-    }
-
-    @GetMapping("/rooms/rat-owner")
-    public String getRoomsWithoutCatOrOwl(Model model) {
-        List<RoomModel> rooms = roomService.getAllRoomsWithoutCatOrOwl();
-        model.addAttribute("rooms", rooms);
-        return "showAvailableRooms";
     }
 
     @GetMapping("/rooms/add")

@@ -52,7 +52,7 @@ public class RoomService {
         List<RoomModel> roomModels = new ArrayList<>();
         List<Room> rooms = roomRepository.findAllByOrderByIdAsc();
         for (Room room : rooms) {
-            if (room.getStudent() != null)
+            if (room.hasEmptyBed())
                 roomModels.add(new RoomModel(room));
         }
         return roomModels;
@@ -63,8 +63,7 @@ public class RoomService {
         List<PetType> forbiddenPets = List.of(PetType.CAT, PetType.OWL);
         List<Room> rooms = roomRepository.findAllByOrderByIdAsc();
         for (Room room : rooms) {
-            List<Student> students = room.getStudent();
-            if (students != null && studentsDontHaveCatsOrOwls(students, forbiddenPets))
+            if (room.hasEmptyBed() && studentsDontHaveCatsOrOwls(room.getStudent(), forbiddenPets))
                 roomModels.add(new RoomModel(room));
         }
         return roomModels;

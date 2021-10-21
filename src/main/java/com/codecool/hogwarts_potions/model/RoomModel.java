@@ -10,6 +10,7 @@ public class RoomModel {
     private boolean needsRenovation;
     private int capacity;
     private String resident;
+    private int availableBedNum;
 
     public RoomModel(Room room) {
         this.id = room.getId();
@@ -18,9 +19,20 @@ public class RoomModel {
 
         List<Student> students = room.getStudent();
 
-        if (students == null) this.resident = "";
-        else if (students.size() == 1) this.resident = students.get(0).getName();
-        else if (students.size() > 1) this.resident = getStudentsName(students);
+        setResidentAndAvailableBedNumValue(students);
+    }
+
+    private void setResidentAndAvailableBedNumValue(List<Student> students) {
+        if (students == null) {
+            this.resident = "";
+            this.availableBedNum = capacity;
+        } else {
+            if (students.size() == 1)
+                this.resident = students.get(0).getName();
+            else if (students.size() > 1)
+                this.resident = getStudentsName(students);
+            this.availableBedNum = capacity - students.size();
+        }
     }
 
     private String getStudentsName(List<Student> students) {
@@ -28,7 +40,7 @@ public class RoomModel {
         for (Student student : students) {
             names.append(student.getName()).append(", ");
         }
-        return names.substring(0, names.length()-2);
+        return names.substring(0, names.length() - 2);
     }
 
     public long getId() {
@@ -61,5 +73,13 @@ public class RoomModel {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public int getAvailableBedNum() {
+        return availableBedNum;
+    }
+
+    public void setAvailableBedNum(int availableBedNum) {
+        this.availableBedNum = availableBedNum;
     }
 }

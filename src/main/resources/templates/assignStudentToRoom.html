@@ -13,9 +13,11 @@
 </div>
 <h1 id="mainHeader">Welcome to Hogwart Houses</h1>
 <div id="studentAssign">
-    <form action="#" th:action="@{/students/{studentId}/assignStudentToRoom (studentId=${student.id})}" method="get">
+    <form action="#" th:action="@{/students/{studentId}/assignToRoom (studentId=${student.id})}"
+          th:object="${assignRoomModel}" method="post">
+        <input type="number" th:value="${student.id}" th:field="*{studentId}" hidden>
         <label for="roomId">Select a room: </label>
-        <select name="roomId" id="roomId">
+        <select name="roomId" id="roomId" th:field="*{roomId}">
             <option th:each="room : ${rooms}"
                     th:text="${room.id}"
                     th:value="${room.id}">
