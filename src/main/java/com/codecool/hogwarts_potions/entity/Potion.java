@@ -1,6 +1,7 @@
 package com.codecool.hogwarts_potions.entity;
 
 import com.codecool.hogwarts_potions.model.BrewingStatus;
+import com.codecool.hogwarts_potions.model.IngredientModel;
 
 import javax.persistence.*;
 import java.util.List;
@@ -42,6 +43,12 @@ public class Potion {
         this.brewingStatus = brewingStatus;
         this.recipe = recipe;
     }
+
+    public Potion(Student student, List<Ingredient> ingredients) {
+        this.student = student;
+        this.ingredients = ingredients;
+    }
+
 
     public long getId() {
         return id;
