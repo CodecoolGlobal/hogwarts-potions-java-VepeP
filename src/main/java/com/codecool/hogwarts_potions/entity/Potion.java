@@ -3,6 +3,7 @@ package com.codecool.hogwarts_potions.entity;
 import com.codecool.hogwarts_potions.model.BrewingStatus;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "potion")
@@ -17,9 +18,8 @@ public class Potion {
     @JoinColumn(name = "student_id", referencedColumnName = "id")
     private Student student;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ingredient_id")
-    private Ingredient ingredients;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "potion")
+    private List<Ingredient> ingredients;
 
     private BrewingStatus brewingStatus;
 
@@ -67,12 +67,16 @@ public class Potion {
         this.student = student;
     }
 
-    public Ingredient getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(Ingredient ingredients) {
+    public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public void addIngredient(Ingredient ingredient) {
+        this.ingredients.add(ingredient);
     }
 
     public BrewingStatus getBrewingStatus() {
@@ -89,5 +93,21 @@ public class Potion {
 
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
+    }
+
+    public void checkBrewingStatus(List<Recipe> allRecipes) {
+        if (this.ingredients == null || ingredients.size() < 5)
+            setBrewingStatus(BrewingStatus.BREW);
+        else if (checkIfRecipeAlreadyExists(allRecipes))
+            setBrewingStatus(BrewingStatus.REPLICA);
+        else
+            setBrewingStatus(BrewingStatus.DISCOVERY);
+    }
+
+    private boolean checkIfRecipeAlreadyExists(List<Recipe> allRecipes) {
+        for (Recipe recipe : allRecipes)
+            if (recipe.hasAllIngredients(this.ingredients))
+                return true;
+        return false;
     }
 }

@@ -1,6 +1,7 @@
 package com.codecool.hogwarts_potions.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "recipe")
@@ -15,9 +16,8 @@ public class Recipe {
     @JoinColumn(name = "student_id", referencedColumnName = "id")
     private Student student;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ingredient_id")
-    private Ingredient ingredients;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "recipe")
+    private List<Ingredient> ingredients;
 
     public Recipe() {
     }
@@ -55,11 +55,19 @@ public class Recipe {
         this.student = student;
     }
 
-    public Ingredient getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(Ingredient ingredients) {
+    public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public void addIngredient(Ingredient ingredient) {
+        this.ingredients.add(ingredient);
+    }
+
+    public boolean hasAllIngredients(List<Ingredient> ingredients) {
+        return this.ingredients.equals(ingredients);
     }
 }
