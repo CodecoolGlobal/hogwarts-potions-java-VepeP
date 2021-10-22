@@ -4,11 +4,12 @@
     <title>Hogwarts Houses - Rooms</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link th:href="@{/css/main.css}" rel="stylesheet"/>
-    <link th:href="@{/css/showRooms.css}" rel="stylesheet"/>
+    <link th:href="@{/css/showPotions.css}" rel="stylesheet"/>
 </head>
 <body>
 <div id="navigation">
     <p><a href="/" methods="GET">Home</a></p>
+    <p><a href="/potions/brew" methods="GET">Brew potion</a></p>
 </div>
 <h1 id="mainHeader">Welcome to Hogwart Houses</h1>
 <div>
@@ -16,7 +17,7 @@
         <li>
             <span th:text="'Potion'"></span>
             <a th:href="@{/potions/{id}(id=${potion.id})}" th:text="'#' + ${potion.id} + ','"></a>
-            <span th:text="'name: ' + ${potion.name}"></span>
+            <span th:text="'brewed by ' + ${potion.student.name}"></span>
         </li>
     </ul>
 </div>

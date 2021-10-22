@@ -1,7 +1,7 @@
 package com.codecool.hogwarts_potions.entity;
 
 import javax.persistence.*;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "ingredient")
@@ -12,15 +12,22 @@ public class Ingredient {
 
     private String name;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "recipe_id", referencedColumnName = "id",
-            insertable = false, updatable = false)
-    private Recipe recipe;
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinColumn(name = "recipe_id", referencedColumnName = "id",
+//            insertable = false, updatable = false)
+    private List<Recipe> recipes;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "potion_id", referencedColumnName = "id",
-            insertable = false, updatable = false)
-    private Potion potion;
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+//    @JoinColumn(name = "potion_id", referencedColumnName = "id",
+//            insertable = false, updatable = false)
+    @JoinTable(name = "ingredient_potions",
+            joinColumns = @JoinColumn(name = "ingredient_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "potion_id", referencedColumnName = "id")
+    )
+    private Set<Potion> potions = new HashSet<>();
 
     public Ingredient() {
     }
@@ -46,20 +53,20 @@ public class Ingredient {
         this.name = name;
     }
 
-    public Recipe getRecipe() {
-        return recipe;
+    public List<Recipe> getRecipes() {
+        return recipes;
     }
 
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
+    public void setRecipes(List<Recipe> recipes) {
+        this.recipes = recipes;
     }
 
-    public Potion getPotion() {
-        return potion;
+    public Set<Potion> getPotions() {
+        return potions;
     }
 
-    public void setPotion(Potion potion) {
-        this.potion = potion;
+    public void setPotions(Set<Potion> potions) {
+        this.potions = potions;
     }
 
     @Override

@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Hogwarts Houses - Brew potion</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+    <link th:href="@{/css/brewPotion.css}" rel="stylesheet"/>
+</head>
+<body>
+<div id="navigation">
+    <p><a href="/" methods="GET">Home</a></p>
+    <p><a href="/potions" methods="GET">Potions</a></p>
+</div>
+<h1 id="mainHeader">Welcome to Hogwart Houses</h1>
+<div id="brewPotionForm">
+    <form action="#" th:action="@{/potions}" th:object="${brewPotionModel}" method="post">
+        <table id="brewPotionTable">
+            <tr>
+                <td>
+                    <label class="required" for="name">Potion name: </label>
+                </td>
+                <td>
+                    <input type="text" id="name" name="name" th:field="*{potionName}" placeholder="My potion"  th:required="true">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="required" for="student">Potion of: </label>
+                </td>
+                <td>
+                    <select name="student" id="student" th:field="*{studentId}">
+                        <option th:each="student : ${students}"
+                                th:text="${student.name}"
+                                th:value="${student.id}">
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td th:rowspan="${maxIngredients + 1}">
+                    <label class="required" for="ingredients">Ingredients: </label>
+                </td>
+            </tr>
+            <tr th:each="i: ${#numbers.sequence(1, maxIngredients)}" th:field="*{ingredients}">
+                <td><input id="ingredients" name="ingredients" type="text"
+                           th:placeholder="${i} + '. ingredient'"></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Brew potion">
+                </td>
+                <td>
+                    <input type="reset" value="Reset"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

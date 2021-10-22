@@ -1,10 +1,12 @@
 package com.codecool.hogwarts_potions.entity;
 
 import com.codecool.hogwarts_potions.model.BrewingStatus;
-import com.codecool.hogwarts_potions.model.IngredientModel;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "potion")
@@ -19,8 +21,8 @@ public class Potion {
     @JoinColumn(name = "student_id", referencedColumnName = "id")
     private Student student;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "potion")
-    private List<Ingredient> ingredients;
+    @ManyToMany(mappedBy = "potions")
+    private Set<Ingredient> ingredients = new HashSet<>();
 
     private BrewingStatus brewingStatus;
 
@@ -31,20 +33,8 @@ public class Potion {
     public Potion() {
     }
 
-    public Potion(String name, BrewingStatus brewingStatus, Recipe recipe) {
+    public Potion(String name, Student student, Set<Ingredient> ingredients) {
         this.name = name;
-        this.brewingStatus = brewingStatus;
-        this.recipe = recipe;
-    }
-
-    public Potion(String name, Student student, BrewingStatus brewingStatus, Recipe recipe) {
-        this.name = name;
-        this.student = student;
-        this.brewingStatus = brewingStatus;
-        this.recipe = recipe;
-    }
-
-    public Potion(Student student, List<Ingredient> ingredients) {
         this.student = student;
         this.ingredients = ingredients;
     }
@@ -74,11 +64,11 @@ public class Potion {
         this.student = student;
     }
 
-    public List<Ingredient> getIngredients() {
+    public Set<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<Ingredient> ingredients) {
+    public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 
@@ -113,8 +103,10 @@ public class Potion {
 
     private boolean checkIfRecipeAlreadyExists(List<Recipe> allRecipes) {
         for (Recipe recipe : allRecipes)
-            if (recipe.hasAllIngredients(this.ingredients))
+            if (recipe.hasAllIngredients(this.ingredients)) {
+                this.recipe = recipe;
                 return true;
+            }
         return false;
     }
 }

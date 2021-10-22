@@ -26,6 +26,7 @@
             <tr>
                 <td>
                     <label class="required"  for="pet">Pet: </label>
+                </td>
                 <td>
                     <select name="pet" id="pet" th:field="*{petType}" th:required="true">
                         <option th:value="${null}" selected hidden></option>

@@ -1,25 +1,29 @@
 package com.codecool.hogwarts_potions.model;
 
 import com.codecool.hogwarts_potions.entity.Ingredient;
+import com.codecool.hogwarts_potions.entity.Potion;
 import com.codecool.hogwarts_potions.entity.Recipe;
 import com.codecool.hogwarts_potions.entity.Student;
 import com.codecool.hogwarts_potions.model.BrewingStatus;
+
+import java.util.List;
+import java.util.Set;
 
 public class PotionModel {
     private long id;
     private String name;
     private Student student;
-    private Ingredient ingredients;
+    private String ingredientNames;
     private BrewingStatus brewingStatus;
     private Recipe recipe;
 
-    public PotionModel(long id, String name, Student student, Ingredient ingredients, BrewingStatus brewingStatus, Recipe recipe) {
-        this.id = id;
-        this.name = name;
-        this.student = student;
-        this.ingredients = ingredients;
-        this.brewingStatus = brewingStatus;
-        this.recipe = recipe;
+    public PotionModel(Potion potion) {
+        this.id = potion.getId();
+        this.name = potion.getName();
+        this.student = potion.getStudent();
+        this.ingredientNames = setIngredientNames(potion.getIngredients());
+        this.brewingStatus = potion.getBrewingStatus();
+        this.recipe = potion.getRecipe();
     }
 
     public long getId() {
@@ -46,12 +50,12 @@ public class PotionModel {
         this.student = student;
     }
 
-    public Ingredient getIngredients() {
-        return ingredients;
+    public String getIngredientNames() {
+        return ingredientNames;
     }
 
-    public void setIngredients(Ingredient ingredients) {
-        this.ingredients = ingredients;
+    public void setIngredientNames(String ingredientNames) {
+        this.ingredientNames = ingredientNames;
     }
 
     public BrewingStatus getBrewingStatus() {
@@ -68,5 +72,15 @@ public class PotionModel {
 
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
+    }
+
+    public String setIngredientNames(Set<Ingredient> ingredients){
+        StringBuilder names = new StringBuilder();
+        if (ingredients == null || ingredients.size() == 0)
+            return "-";
+        for (Ingredient ingredient : ingredients) {
+            names.append(ingredient.getName()).append(", ");
+        }
+        return names.substring(0, names.length() - 2);
     }
 }

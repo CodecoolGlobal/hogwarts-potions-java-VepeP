@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Hogwarts Houses - Potion details</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+    <link th:href="@{/css/showPotion.css}" rel="stylesheet"/>
+</head>
+<body>
+<div id="navigation">
+    <p><a href="/" methods="GET">Home</a></p>
+    <p><a href="/potions" methods="GET">Potions</a></p>
+</div>
+<h1 id="mainHeader">Welcome to Hogwart Houses</h1>
+<div id="roomActionHolder">
+    <div th:if="${potion.brewingStatus == brewStatus}">
+        <form action="#" th:action="@{/potions/put/{id}(id=${potion.id})}" th:method="get">
+            <p><input id="updatePotionBtn" type="submit" value="Update potion"></p>
+        </form>
+    </div>
+</div>
+<div id="potionDetails">
+    <table id="potionDetailsTable">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Student</th>
+            <th>Ingredients</th>
+            <th>Brewing Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="${potion.name}"></td>
+            <td th:text="${potion.student.name}"></td>
+            <td th:text="${potion.ingredientNames}"></td>
+            <td th:text="${potion.brewingStatus}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

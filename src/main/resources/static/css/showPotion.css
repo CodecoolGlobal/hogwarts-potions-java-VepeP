@@ -1,0 +1,26 @@
+#updatePotionBtn {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    color: darkblue;
+    font-size: 0.9em;
+    font-family: Serif, sans-serif;
+}
+
+#potionDetails {
+    padding: 20px;
+}
+
+#potionDetailsTable {
+    background-repeat: no-repeat;
+    width: 20%;
+    margin: 0;
+    border: 1px solid black;
+}
+
+#potionDetailsTable th, td {
+    text-align: center;
+    padding: 8px;
+}
