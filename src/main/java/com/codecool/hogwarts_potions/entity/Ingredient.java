@@ -1,5 +1,9 @@
 package com.codecool.hogwarts_potions.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.EqualsAndHashCode;
+import lombok.Singular;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -12,22 +16,15 @@ public class Ingredient {
 
     private String name;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "recipe_id", referencedColumnName = "id",
-//            insertable = false, updatable = false)
-    private List<Recipe> recipes;
+    @ManyToMany(mappedBy = "ingredients")
+    @Singular
+    @EqualsAndHashCode.Exclude
+    private Set<Recipe> recipes = new HashSet<>();;
 
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-//    @JoinColumn(name = "potion_id", referencedColumnName = "id",
-//            insertable = false, updatable = false)
-    @JoinTable(name = "ingredient_potions",
-            joinColumns = @JoinColumn(name = "ingredient_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "potion_id", referencedColumnName = "id")
-    )
-    private Set<Potion> potions = new HashSet<>();
+    @ManyToMany(mappedBy = "ingredients")
+    @Singular
+    @EqualsAndHashCode.Exclude
+    private Set<Potion> potions = new HashSet<>();;
 
     public Ingredient() {
     }
@@ -53,11 +50,11 @@ public class Ingredient {
         this.name = name;
     }
 
-    public List<Recipe> getRecipes() {
+    public Set<Recipe> getRecipes() {
         return recipes;
     }
 
-    public void setRecipes(List<Recipe> recipes) {
+    public void setRecipes(Set<Recipe> recipes) {
         this.recipes = recipes;
     }
 

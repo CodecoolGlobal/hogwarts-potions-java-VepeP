@@ -28,8 +28,10 @@ public class IngredientService {
             if (!ingredientName.equals("")) {
                 ingredientName = ingredientName.toLowerCase();
                 ingredient = ingredientRepository.findByName(ingredientName);
-                if (ingredient == null)
+                if (ingredient == null) {
                     ingredient = new Ingredient(ingredientName);
+                    ingredientRepository.save(ingredient);
+                }
                 ingredientList.add(ingredient);
             }
         }

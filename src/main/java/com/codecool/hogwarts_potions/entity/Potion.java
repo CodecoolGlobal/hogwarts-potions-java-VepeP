@@ -1,6 +1,10 @@
 package com.codecool.hogwarts_potions.entity;
 
 import com.codecool.hogwarts_potions.model.BrewingStatus;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.inject.Singleton;
+import lombok.EqualsAndHashCode;
+import lombok.Singular;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -21,7 +25,11 @@ public class Potion {
     @JoinColumn(name = "student_id", referencedColumnName = "id")
     private Student student;
 
-    @ManyToMany(mappedBy = "potions")
+    @Singular
+    @JoinTable
+    @ManyToMany
+    @EqualsAndHashCode.Exclude
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Set<Ingredient> ingredients = new HashSet<>();
 
     private BrewingStatus brewingStatus;
