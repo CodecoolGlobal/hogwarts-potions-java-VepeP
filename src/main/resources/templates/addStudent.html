@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <title>Hogwarts Houses - Rooms</title>
+    <title>Hogwarts Houses - Add student</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link th:href="@{/css/main.css}" rel="stylesheet"/>
     <link th:href="@{/css/addStudent.css}" rel="stylesheet"/>
@@ -9,7 +9,14 @@
 <body>
 <div id="navigation">
     <p><a href="/" methods="GET">Home</a></p>
+    <p><a href="/rooms" methods="GET">Rooms</a></p>
+    <p><a href="/rooms/available" methods="GET">Available rooms</a></p>
+    <p><a href="/rooms/rat-owner" methods="GET">Rooms safe for rat owners</a></p>
+    <p><a href="/rooms/add" methods="GET">Add room</a></p>
     <p><a href="/students" methods="GET">Students</a></p>
+    <p><a href="/students/add" methods="GET">Add student</a></p>
+    <p><a href="/potions" methods="GET">Potions</a></p>
+    <p><a href="/potions/brew" methods="GET">Brew potion</a></p>
 </div>
 <h1 id="mainHeader">Welcome to Hogwart Houses</h1>
 <div id="newStudentForm">

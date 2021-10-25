@@ -9,9 +9,22 @@
 <body>
 <div id="navigation">
     <p><a href="/" methods="GET">Home</a></p>
+    <p><a href="/rooms" methods="GET">Rooms</a></p>
+    <p><a href="/rooms/available" methods="GET">Available rooms</a></p>
+    <p><a href="/rooms/rat-owner" methods="GET">Rooms safe for rat owners</a></p>
+    <p><a href="/rooms/add" methods="GET">Add room</a></p>
+    <p><a href="/students" methods="GET">Students</a></p>
+    <p><a href="/students/add" methods="GET">Add student</a></p>
     <p><a href="/potions" methods="GET">Potions</a></p>
+    <p><a href="/potions/brew" methods="GET">Brew potion</a></p>
 </div>
 <h1 id="mainHeader">Welcome to Hogwart Houses</h1>
+<div>
+    <span id="ingredientsInStorage">
+        <p class="allIngredients" th:text="'Ingredients in storage:'"></p>
+        <p class="allIngredients" th:text="${ingredients}"></p>
+    </span>
+</div>
 <div id="brewPotionForm">
     <form action="#" th:action="@{/potions}" th:object="${brewPotionModel}" method="post">
         <table id="brewPotionTable">
@@ -20,7 +33,8 @@
                     <label class="required" for="name">Potion name: </label>
                 </td>
                 <td>
-                    <input type="text" id="name" name="name" th:field="*{potionName}" placeholder="My potion"  th:required="true">
+                    <input type="text" id="name" name="name" th:field="*{potionName}" placeholder="My potion"
+                           th:required="true">
                 </td>
             </tr>
             <tr>
