@@ -47,6 +47,11 @@ public class Potion {
         this.ingredients = ingredients;
     }
 
+    public Potion(String name, Student student) {
+        this.name = name;
+        this.student = student;
+    }
+
 
     public long getId() {
         return id;
@@ -100,7 +105,7 @@ public class Potion {
         this.recipe = recipe;
     }
 
-    public void checkBrewingStatus(List<Recipe> allRecipes) {
+    public void checkBrewingStatus(Set<Recipe> allRecipes) {
         if (this.ingredients == null || ingredients.size() < 5)
             setBrewingStatus(BrewingStatus.BREW);
         else if (checkIfRecipeAlreadyExists(allRecipes))
@@ -109,7 +114,7 @@ public class Potion {
             setBrewingStatus(BrewingStatus.DISCOVERY);
     }
 
-    private boolean checkIfRecipeAlreadyExists(List<Recipe> allRecipes) {
+    private boolean checkIfRecipeAlreadyExists(Set<Recipe> allRecipes) {
         for (Recipe recipe : allRecipes)
             if (recipe.hasAllIngredients(this.ingredients)) {
                 this.recipe = recipe;

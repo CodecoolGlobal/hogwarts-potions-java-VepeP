@@ -3,11 +3,13 @@ package com.codecool.hogwarts_potions.model;
 import java.util.List;
 
 public class BrewPotionModel {
+    private long id;
     private String potionName;
     private List<String> ingredients;
     private long studentId;
 
-    public BrewPotionModel(String potionName, List<String> ingredients, long studentId) {
+    public BrewPotionModel(long id, String potionName, List<String> ingredients, long studentId) {
+        this.id = id;
         this.potionName = potionName;
         this.ingredients = ingredients;
         this.studentId = studentId;
@@ -42,5 +44,13 @@ public class BrewPotionModel {
 
     public void setPotionName(String potionName) {
         this.potionName = potionName;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

@@ -1,14 +1,13 @@
 package com.codecool.hogwarts_potions.repository;
 
-import com.codecool.hogwarts_potions.entity.Ingredient;
 import com.codecool.hogwarts_potions.entity.Recipe;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+import java.util.Set;
 
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 
-    List<Recipe> findAllByOrderByIdAsc();
+    Set<Recipe> findAllByOrderByIdAsc();
 
     Recipe findById(long id);
 

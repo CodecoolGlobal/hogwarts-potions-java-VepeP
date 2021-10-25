@@ -1,6 +1,5 @@
 package com.codecool.hogwarts_potions.controller;
 
-import com.codecool.hogwarts_potions.entity.Ingredient;
 import com.codecool.hogwarts_potions.model.*;
 import com.codecool.hogwarts_potions.model.BrewingStatus;
 import com.codecool.hogwarts_potions.service.IngredientService;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -48,24 +46,28 @@ public class PotionController {
         return "showPotion";
     }
 
-    @GetMapping("/potions/put/{id}")
-    public void updatePotion(@PathVariable long id, Model model) {
-//        PotionModel potion = potionService.getPotionById(id);
-//        model.addAttribute("potion", potion);
-//        return "showPotion";
-        System.out.println("I'm gonna update this potion.");
-    }
-
     @GetMapping("/potions/brew")
-    public String brewPotions(Model model) {
+    public String brewPotion(Model model) {
         List<StudentModel> students = studentService.getAllStudents();
         String ingredients = ingredientService.getIngredientNames();
-        Integer maxIngredients = BrewingServiceConstants.MAX_INGREDIENTS_FOR_POTIONS;
         model.addAttribute("students", students);
         model.addAttribute("brewPotionModel", new BrewPotionModel());
-        model.addAttribute("maxIngredients", maxIngredients);
+        model.addAttribute("maxIngredients", BrewingServiceConstants.MAX_INGREDIENTS_FOR_POTIONS);
         model.addAttribute("ingredients", ingredients);
-        return "brewPotions";
+        return "brewPotion";
+    }
+
+    @GetMapping("/potions/put/{id}")
+    public String updatePotion(@PathVariable long id, Model model) {
+        PotionModel potion = potionService.getPotionById(id);
+        StudentModel student = new StudentModel(potion.getStudent());
+        String ingredients = ingredientService.getIngredientNames();
+        model.addAttribute("potion", potion);
+        model.addAttribute("student", student);
+        model.addAttribute("brewPotionModel", new BrewPotionModel());
+        model.addAttribute("maxIngredients", BrewingServiceConstants.MAX_INGREDIENTS_FOR_POTIONS);
+        model.addAttribute("ingredients", ingredients);
+        return "updatePotion";
     }
 
     @PostMapping("/potions")

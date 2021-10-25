@@ -27,6 +27,7 @@
 </div>
 <div id="brewPotionForm">
     <form action="#" th:action="@{/potions}" th:object="${brewPotionModel}" method="post">
+        <label for="id"></label><input type="text" id="id" name="id" th:readonly="true" th:value="${-1}" th:hidden="true">
         <table id="brewPotionTable">
             <tr>
                 <td>
@@ -51,7 +52,7 @@
             </tr>
             <tr>
                 <td th:rowspan="${maxIngredients + 1}">
-                    <label class="required" for="ingredients">Ingredients: </label>
+                    <label for="ingredients">Ingredients: </label>
                 </td>
             </tr>
             <tr th:each="i: ${#numbers.sequence(1, maxIngredients)}" th:field="*{ingredients}">

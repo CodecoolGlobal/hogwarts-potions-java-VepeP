@@ -6,7 +6,6 @@ import com.codecool.hogwarts_potions.entity.Recipe;
 import com.codecool.hogwarts_potions.entity.Student;
 import com.codecool.hogwarts_potions.model.BrewingStatus;
 
-import java.util.List;
 import java.util.Set;
 
 public class PotionModel {

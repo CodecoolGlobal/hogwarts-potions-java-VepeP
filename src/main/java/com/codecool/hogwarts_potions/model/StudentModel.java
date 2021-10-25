@@ -22,6 +22,13 @@ public class StudentModel {
         else roomId = -1;
     }
 
+    public StudentModel(Student student) {
+        this.id = student.getId();
+        this.name = student.getName();
+        this.petType = student.getPetType();
+        this.houseType = student.getHouseType();
+    }
+
     public long getId() {
         return id;
     }

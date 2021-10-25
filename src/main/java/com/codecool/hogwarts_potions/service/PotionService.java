@@ -47,13 +47,24 @@ public class PotionService {
     }
 
     public void addNewPotion(BrewPotionModel brewPotionModel) {
-        String potionName = brewPotionModel.getPotionName();
-        Student student = studentRepository.findById(brewPotionModel.getStudentId());
-        Set<Ingredient> ingredients = ingredientService.getIngredientsByNames(brewPotionModel.getIngredients());
-        List<Recipe> allRecipes = recipeRepository.findAllByOrderByIdAsc();
+        Potion potion;
+        Student student;
+        Set<Ingredient> ingredients;
+        Set<Recipe> allRecipes;
+        String potionName;
         Recipe recipe;
 
-        Potion potion = new Potion(potionName, student, ingredients);
+        potion = potionRepository.findById(brewPotionModel.getId());
+        student = studentRepository.findById(brewPotionModel.getStudentId());
+        ingredients = ingredientService.getIngredientsByNames(brewPotionModel.getIngredients());
+        allRecipes = recipeRepository.findAllByOrderByIdAsc();
+
+        if (potion == null) {
+            potionName = brewPotionModel.getPotionName();
+            potion = new Potion(potionName, student);
+        }
+
+        potion.setIngredients(ingredients);
         potion.checkBrewingStatus(allRecipes);
 
         if (potion.getBrewingStatus() == BrewingStatus.DISCOVERY) {
