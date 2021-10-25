@@ -37,12 +37,18 @@ insert into ingredient (name) values ('bat tongue');
 insert into recipe (name, student_id) values ('Harry Potter''s Discovery', 1);
 
 insert into potion (brewing_status, name, recipe_id, student_id) values (2, 'Amortentia', 1, 1);
+insert into potion (brewing_status, name, recipe_id, student_id) values (0, 'Potion awesome', null, 5);
 
 insert into potion_ingredients (potions_id, ingredients_id) values (1, 1);
 insert into potion_ingredients (potions_id, ingredients_id) values (1, 2);
 insert into potion_ingredients (potions_id, ingredients_id) values (1, 3);
 insert into potion_ingredients (potions_id, ingredients_id) values (1, 4);
 insert into potion_ingredients (potions_id, ingredients_id) values (1, 5);
+
+insert into potion_ingredients (potions_id, ingredients_id) values (2, 4);
+insert into potion_ingredients (potions_id, ingredients_id) values (2, 6);
+insert into potion_ingredients (potions_id, ingredients_id) values (2, 8);
+insert into potion_ingredients (potions_id, ingredients_id) values (2, 9);
 
 insert into recipe_ingredients (recipes_id, ingredients_id) values (1, 1);
 insert into recipe_ingredients (recipes_id, ingredients_id) values (1, 2);
