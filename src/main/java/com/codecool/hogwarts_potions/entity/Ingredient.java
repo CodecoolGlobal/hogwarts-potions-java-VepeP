@@ -1,6 +1,5 @@
 package com.codecool.hogwarts_potions.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.EqualsAndHashCode;
 import lombok.Singular;
 
@@ -19,12 +18,12 @@ public class Ingredient {
     @ManyToMany(mappedBy = "ingredients")
     @Singular
     @EqualsAndHashCode.Exclude
-    private Set<Recipe> recipes = new HashSet<>();;
+    private Set<Recipe> recipes = new HashSet<>();
 
     @ManyToMany(mappedBy = "ingredients")
     @Singular
     @EqualsAndHashCode.Exclude
-    private Set<Potion> potions = new HashSet<>();;
+    private Set<Potion> potions = new HashSet<>();
 
     public Ingredient() {
     }

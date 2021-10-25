@@ -1,15 +1,11 @@
 package com.codecool.hogwarts_potions.entity;
 
-import com.codecool.hogwarts_potions.model.BrewingStatus;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.inject.Singleton;
 import lombok.EqualsAndHashCode;
 import lombok.Singular;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -83,10 +79,6 @@ public class Potion {
 
     public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
-    }
-
-    public void addIngredient(Ingredient ingredient) {
-        this.ingredients.add(ingredient);
     }
 
     public BrewingStatus getBrewingStatus() {

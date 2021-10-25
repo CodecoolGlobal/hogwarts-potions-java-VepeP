@@ -7,8 +7,6 @@ import java.util.List;
 
 public interface PotionRepository extends JpaRepository<Potion, Long> {
 
-    List<Potion> findAll();
-
     Potion findById(long id);
 
     List<Potion> findAllByOrderByIdAsc();

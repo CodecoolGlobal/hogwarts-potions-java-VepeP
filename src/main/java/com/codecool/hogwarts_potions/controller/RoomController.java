@@ -1,17 +1,16 @@
 package com.codecool.hogwarts_potions.controller;
 
 import com.codecool.hogwarts_potions.entity.Room;
-import com.codecool.hogwarts_potions.entity.Student;
-import com.codecool.hogwarts_potions.entity.types.HouseType;
-import com.codecool.hogwarts_potions.entity.types.PetType;
 import com.codecool.hogwarts_potions.model.NewRoomModel;
-import com.codecool.hogwarts_potions.model.NewStudentModel;
 import com.codecool.hogwarts_potions.model.RoomModel;
 import com.codecool.hogwarts_potions.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 

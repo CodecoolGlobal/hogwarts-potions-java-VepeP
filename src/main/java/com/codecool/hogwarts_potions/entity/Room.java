@@ -56,10 +56,6 @@ public class Room {
         this.students = students;
     }
 
-    public void addStudent(Student student) {
-        this.students.add(student);
-    }
-
     public List<Student> getStudents() {
         return students;
     }
@@ -76,7 +72,7 @@ public class Room {
         this.capacity = capacity;
     }
 
-    public boolean hasEmptyBed(){
+    public boolean hasEmptyBed() {
         int numOfStudents = students == null ? 0 : students.size();
         return numOfStudents < capacity;
     }

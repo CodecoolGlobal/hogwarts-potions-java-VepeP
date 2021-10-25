@@ -28,9 +28,8 @@ public class Student {
 
     private HouseType houseType;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-    @JoinColumn(name = "room_id",  referencedColumnName = "id",
-            insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "room_id", referencedColumnName = "id")
     private Room room;
 
     public Student() {

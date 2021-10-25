@@ -1,7 +1,7 @@
 package com.codecool.hogwarts_potions.controller;
 
+import com.codecool.hogwarts_potions.entity.BrewingStatus;
 import com.codecool.hogwarts_potions.model.*;
-import com.codecool.hogwarts_potions.model.BrewingStatus;
 import com.codecool.hogwarts_potions.service.IngredientService;
 import com.codecool.hogwarts_potions.service.PotionService;
 import com.codecool.hogwarts_potions.service.StudentService;

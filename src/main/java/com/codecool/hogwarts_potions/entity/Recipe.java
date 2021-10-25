@@ -6,7 +6,6 @@ import lombok.Singular;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -27,7 +26,7 @@ public class Recipe {
     @ManyToMany
     @EqualsAndHashCode.Exclude
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    private Set<Ingredient> ingredients = new HashSet<>();;
+    private Set<Ingredient> ingredients = new HashSet<>();
 
     public Recipe() {
     }
@@ -68,10 +67,6 @@ public class Recipe {
 
     public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
-    }
-
-    public void addIngredient(Ingredient ingredient) {
-        this.ingredients.add(ingredient);
     }
 
     public boolean hasAllIngredients(Set<Ingredient> ingredients) {

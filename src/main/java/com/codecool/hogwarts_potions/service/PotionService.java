@@ -1,10 +1,8 @@
 package com.codecool.hogwarts_potions.service;
 
 import com.codecool.hogwarts_potions.entity.*;
-import com.codecool.hogwarts_potions.model.BrewingStatus;
 import com.codecool.hogwarts_potions.model.BrewPotionModel;
 import com.codecool.hogwarts_potions.model.PotionModel;
-import com.codecool.hogwarts_potions.model.RoomModel;
 import com.codecool.hogwarts_potions.repository.PotionRepository;
 import com.codecool.hogwarts_potions.repository.RecipeRepository;
 import com.codecool.hogwarts_potions.repository.StudentRepository;

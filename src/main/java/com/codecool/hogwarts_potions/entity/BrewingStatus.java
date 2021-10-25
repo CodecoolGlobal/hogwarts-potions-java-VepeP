@@ -1,4 +1,4 @@
-package com.codecool.hogwarts_potions.model;
+package com.codecool.hogwarts_potions.entity;
 
 public enum BrewingStatus {
     BREW,

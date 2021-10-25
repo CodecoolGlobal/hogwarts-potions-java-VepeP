@@ -1,6 +1,5 @@
 package com.codecool.hogwarts_potions.service;
 
-
 import com.codecool.hogwarts_potions.entity.Ingredient;
 import com.codecool.hogwarts_potions.model.IngredientModel;
 import com.codecool.hogwarts_potions.repository.IngredientRepository;
@@ -49,7 +48,7 @@ public class IngredientService {
     }
 
 
-    public String getIngredientNames(){
+    public String getIngredientNames() {
         List<Ingredient> ingredients = ingredientRepository.findAllByOrderByIdAsc();
         StringBuilder names = new StringBuilder();
         if (ingredients == null || ingredients.size() == 0)

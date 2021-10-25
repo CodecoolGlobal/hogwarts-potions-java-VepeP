@@ -1,6 +1,5 @@
 package com.codecool.hogwarts_potions.controller;
 
-import com.codecool.hogwarts_potions.entity.Room;
 import com.codecool.hogwarts_potions.entity.Student;
 import com.codecool.hogwarts_potions.entity.types.HouseType;
 import com.codecool.hogwarts_potions.entity.types.PetType;

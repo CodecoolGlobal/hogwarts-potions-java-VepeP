@@ -9,8 +9,4 @@ public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 
     Set<Recipe> findAllByOrderByIdAsc();
 
-    Recipe findById(long id);
-
-    Recipe findByName(String recipeName);
-
 }

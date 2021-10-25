@@ -8,18 +8,7 @@ public class BrewPotionModel {
     private List<String> ingredients;
     private long studentId;
 
-    public BrewPotionModel(long id, String potionName, List<String> ingredients, long studentId) {
-        this.id = id;
-        this.potionName = potionName;
-        this.ingredients = ingredients;
-        this.studentId = studentId;
-    }
-
     public BrewPotionModel() {
-    }
-
-    public void addIngredient(String ingredient){
-        this.ingredients.add(ingredient);
     }
 
     public List<String> getIngredients() {

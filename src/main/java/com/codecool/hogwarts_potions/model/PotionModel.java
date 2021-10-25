@@ -4,7 +4,7 @@ import com.codecool.hogwarts_potions.entity.Ingredient;
 import com.codecool.hogwarts_potions.entity.Potion;
 import com.codecool.hogwarts_potions.entity.Recipe;
 import com.codecool.hogwarts_potions.entity.Student;
-import com.codecool.hogwarts_potions.model.BrewingStatus;
+import com.codecool.hogwarts_potions.entity.BrewingStatus;
 
 import java.util.Set;
 

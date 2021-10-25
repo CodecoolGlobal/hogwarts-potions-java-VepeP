@@ -25,7 +25,7 @@ public class StudentService {
 
     public List<StudentModel> getAllStudents() {
         List<StudentModel> studentModels = new ArrayList<>();
-        List<Student> students = studentRepository.findAll();
+        List<Student> students = studentRepository.findAllByOrderByIdAsc();
         Room room;
         for (Student student : students) {
             room = student.getRoom();
@@ -47,7 +47,7 @@ public class StudentService {
     public void assignStudentToRoom(AssignRoomModel assignRoomModel) {
         Student student = studentRepository.findById(assignRoomModel.getStudentId());
         Room room = roomRepository.findById(assignRoomModel.getRoomId());
-        room.addStudent(student);
-        roomRepository.save(room);
+        student.setRoom(room);
+        studentRepository.save(student);
     }
 }
