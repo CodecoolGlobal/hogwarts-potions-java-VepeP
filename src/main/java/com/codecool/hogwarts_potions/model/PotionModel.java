@@ -13,7 +13,7 @@ public class PotionModel {
     private long id;
     private String name;
     private Student student;
-    private String ingredientNames;
+    private Set<Ingredient> ingredients;
     private BrewingStatus brewingStatus;
     private Recipe recipe;
 
@@ -21,7 +21,7 @@ public class PotionModel {
         this.id = potion.getId();
         this.name = potion.getName();
         this.student = potion.getStudent();
-        this.ingredientNames = setIngredientNames(potion.getIngredients());
+        this.ingredients = potion.getIngredients();
         this.brewingStatus = potion.getBrewingStatus();
         this.recipe = potion.getRecipe();
     }
@@ -50,14 +50,6 @@ public class PotionModel {
         this.student = student;
     }
 
-    public String getIngredientNames() {
-        return ingredientNames;
-    }
-
-    public void setIngredientNames(String ingredientNames) {
-        this.ingredientNames = ingredientNames;
-    }
-
     public BrewingStatus getBrewingStatus() {
         return brewingStatus;
     }
@@ -74,13 +66,12 @@ public class PotionModel {
         this.recipe = recipe;
     }
 
-    public String setIngredientNames(Set<Ingredient> ingredients){
-        StringBuilder names = new StringBuilder();
-        if (ingredients == null || ingredients.size() == 0)
-            return "-";
-        for (Ingredient ingredient : ingredients) {
-            names.append(ingredient.getName()).append(", ");
-        }
-        return names.substring(0, names.length() - 2);
+    public Set<Ingredient> getIngredients() {
+        return ingredients;
     }
+
+    public void setIngredients(Set<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
 }

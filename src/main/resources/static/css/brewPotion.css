@@ -1,4 +1,4 @@
-#brewPotionForm{
+#brewPotionForm {
     padding: 20px;
 }
 
@@ -14,6 +14,17 @@
 }
 
 .required:after {
-    content:"*";
+    content: "*";
     color: red;
+}
+
+#ingredientsInStorage {
+    display: flex;
+    margin-bottom: 0;
+}
+
+.allIngredients {
+    font-size: 1em;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }

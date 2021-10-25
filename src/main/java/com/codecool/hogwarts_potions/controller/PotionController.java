@@ -1,9 +1,9 @@
 package com.codecool.hogwarts_potions.controller;
 
-import com.codecool.hogwarts_potions.model.BrewPotionModel;
+import com.codecool.hogwarts_potions.entity.Ingredient;
+import com.codecool.hogwarts_potions.model.*;
 import com.codecool.hogwarts_potions.model.BrewingStatus;
-import com.codecool.hogwarts_potions.model.PotionModel;
-import com.codecool.hogwarts_potions.model.StudentModel;
+import com.codecool.hogwarts_potions.service.IngredientService;
 import com.codecool.hogwarts_potions.service.PotionService;
 import com.codecool.hogwarts_potions.service.StudentService;
 import com.codecool.hogwarts_potions.service.constants.BrewingServiceConstants;
@@ -23,11 +23,13 @@ public class PotionController {
 
     private final PotionService potionService;
     private final StudentService studentService;
+    private final IngredientService ingredientService;
 
     @Autowired
-    public PotionController(PotionService potionService, StudentService studentService) {
+    public PotionController(PotionService potionService, StudentService studentService, IngredientService ingredientService) {
         this.potionService = potionService;
         this.studentService = studentService;
+        this.ingredientService = ingredientService;
     }
 
     @GetMapping("/potions")
@@ -57,10 +59,12 @@ public class PotionController {
     @GetMapping("/potions/brew")
     public String brewPotions(Model model) {
         List<StudentModel> students = studentService.getAllStudents();
+        String ingredients = ingredientService.getIngredientNames();
         Integer maxIngredients = BrewingServiceConstants.MAX_INGREDIENTS_FOR_POTIONS;
         model.addAttribute("students", students);
         model.addAttribute("brewPotionModel", new BrewPotionModel());
         model.addAttribute("maxIngredients", maxIngredients);
+        model.addAttribute("ingredients", ingredients);
         return "brewPotions";
     }
 
