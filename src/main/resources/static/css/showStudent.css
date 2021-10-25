@@ -22,4 +22,5 @@
 #studentDetailsTable th, td {
     text-align: center;
     padding: 8px;
+    white-space: nowrap;
 }

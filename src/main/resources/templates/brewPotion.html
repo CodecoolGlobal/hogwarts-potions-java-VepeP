@@ -27,7 +27,8 @@
 </div>
 <div id="brewPotionForm">
     <form action="#" th:action="@{/potions}" th:object="${brewPotionModel}" method="post">
-        <label for="id"></label><input type="text" id="id" name="id" th:readonly="true" th:value="${-1}" th:hidden="true">
+        <label for="id"></label><input type="text" id="id" name="id" th:readonly="true" th:value="${-1}"
+                                       th:hidden="true">
         <table id="brewPotionTable">
             <tr>
                 <td>
@@ -60,12 +61,8 @@
                            th:placeholder="${i} + '. ingredient'"></td>
             </tr>
             <tr>
-                <td>
-                    <input type="submit" value="Brew potion">
-                </td>
-                <td>
-                    <input type="reset" value="Reset"/>
-                </td>
+                <td class="tableButtons"><input type="submit" value="Brew potion"></td>
+                <td class="tableButtons"><input type="reset" value="Reset"/></td>
             </tr>
         </table>
     </form>

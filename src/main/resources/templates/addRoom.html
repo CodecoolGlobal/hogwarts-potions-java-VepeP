@@ -33,11 +33,12 @@
             </tr>
             <tr>
                 <td><label class="required" for="capacity">Capacity:</label></td>
-                <td><input type="number" name="capacity" id="capacity" placeholder="1" value="1" min="1" max="10" required th:field="*{capacity}"></td>
+                <td><input type="number" name="capacity" id="capacity" th:placeholder="3" th:min="1" th:max="10"
+                           th:required="true"></td>
             </tr>
             <tr>
-                <td><input type="submit" value="Add room"></td>
-                <td><input type="reset" value="Reset"/></td>
+                <td class="tableButtons"><input type="submit" value="Add room"></td>
+                <td class="tableButtons"><input type="reset" value="Reset"/></td>
             </tr>
         </table>
     </form>

@@ -23,7 +23,8 @@
     <ul th:each="potion: ${potions}">
         <li>
             <span th:text="'Potion'"></span>
-            <a th:href="@{/potions/{id}(id=${potion.id})}" th:text="'#' + ${potion.id} + ','"></a>
+            <a th:title="'Show potion details'" th:href="@{/potions/{id}(id=${potion.id})}"
+               th:text="'#' + ${potion.id} + ','"></a>
             <span th:text="'brewed by ' + ${potion.student.name}"></span>
         </li>
     </ul>

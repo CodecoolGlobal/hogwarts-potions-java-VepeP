@@ -23,12 +23,12 @@
     <ul th:each="room: ${rooms}">
         <li th:if="${room.resident != null}">
             <span th:text="'Room'"></span>
-            <a th:href="@{/rooms/{id}(id=${room.id})}" th:text="'#' + ${room.id}"></a>
+            <a th:title="'Show room details'" th:href="@{/rooms/{id}(id=${room.id})}" th:text="'#' + ${room.id}"></a>
             <span th:text="' owned by ' + ${room.resident}"></span>
         </li>
         <li th:unless="${room.resident != null}">
             <span th:text="'Room'"></span>
-            <a th:href="@{/rooms/{id}(id=${room.id})}" th:text="'#' + ${room.id}"></a>
+            <a th:title="'Show room details'" th:href="@{/rooms/{id}(id=${room.id})}" th:text="'#' + ${room.id}"></a>
             <span th:text="' is empty'"></span>
         </li>
     </ul>

@@ -23,7 +23,8 @@
     <ul th:each="student: ${students}">
         <li>
             <span th:text="'Student'"></span>
-            <a th:href="@{/students/{id}(id=${student.id})}" th:text="'#' + ${student.id} + ','"></a>
+            <a th:title="'Show student details'" th:href="@{/students/{id}(id=${student.id})}"
+               th:text="'#' + ${student.id} + ','"></a>
             <span th:text="'name: ' + ${student.name}"></span>
         </li>
     </ul>

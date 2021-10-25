@@ -21,7 +21,11 @@
 <h1 id="mainHeader">Welcome to Hogwart Houses</h1>
 <div>
     <ul th:each="room: ${rooms}">
-        <li th:text="'Room #' + ${room.id} + ' has ' + ${room.availableBedNum} + ' free bed(s)'"></li>
+        <li>
+            <span th:text="'Room'"></span>
+            <a th:title="'Show room details'" th:href="@{/rooms/{id}(id=${room.id})}" th:text="'#' + ${room.id}"></a>
+            <span th:text="' has ' + ${room.availableBedNum} + ' free bed(s)'"></span>
+        </li>
     </ul>
 </div>
 </body>

@@ -4,13 +4,14 @@
 
 #brewPotionFormTable {
     background-repeat: no-repeat;
-    width: 30%;
+    width: 40%;
     margin: 5px;
 }
 
 #brewPotionFormTable th, td {
     text-align: left;
     padding: 8px;
+    white-space: nowrap;
 }
 
 .required:after {

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <title>Hogwarts Houses - Brew potion</title>
+    <title>Hogwarts Houses - Update potion</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link th:href="@{/css/main.css}" rel="stylesheet"/>
     <link th:href="@{/css/brewPotion.css}" rel="stylesheet"/>
@@ -27,7 +27,8 @@
 </div>
 <div id="brewPotionForm">
     <form action="#" th:action="@{/potions}" th:object="${brewPotionModel}" method="post">
-        <label for="id"></label><input type="text" id="id" name="id" th:readonly="true" th:value="${potion.id}" th:hidden="true">
+        <label for="id"></label><input type="text" id="id" name="id" th:readonly="true" th:value="${potion.id}"
+                                       th:hidden="true">
         <table id="brewPotionTable">
             <tr>
                 <td>
@@ -42,8 +43,11 @@
                     <label class="required" for="studentId">Potion of: </label>
                 </td>
                 <td>
-                    <input type="text" id="studentId" name="studentId" th:readonly="true" th:value="${student.id}" th:hidden="true">
-                    <input type="text" th:readonly="true" th:value="${student.name}">
+                    <input type="text" id="studentId" name="studentId" th:readonly="true" th:value="${student.id}"
+                           th:hidden="true">
+                    <label>
+                        <input type="text" th:readonly="true" th:value="${student.name}">
+                    </label>
                 </td>
             </tr>
             <tr>
@@ -60,12 +64,8 @@
                 </td>
             </tr>
             <tr>
-                <td>
-                    <input type="submit" value="Brew potion">
-                </td>
-                <td>
-                    <input type="reset" value="Reset"/>
-                </td>
+                <td class="tableButtons"><input type="submit" value="Brew potion"></td>
+                <td class="tableButtons"><input type="reset" value="Reset"/></td>
             </tr>
         </table>
     </form>

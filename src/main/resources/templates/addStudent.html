@@ -27,12 +27,13 @@
                     <label class="required" for="name">Name: </label>
                 </td>
                 <td>
-                    <input type="text" id="name" name="name" th:field="*{name}" placeholder="John Doe"  th:required="true">
+                    <input type="text" id="name" name="name" th:field="*{name}" placeholder="John Doe"
+                           th:required="true">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <label class="required"  for="pet">Pet: </label>
+                    <label class="required" for="pet">Pet: </label>
                 </td>
                 <td>
                     <select name="pet" id="pet" th:field="*{petType}" th:required="true">
@@ -45,7 +46,7 @@
             </tr>
             <tr>
                 <td>
-                    <label class="required"  for="house">House:</label>
+                    <label class="required" for="house">House:</label>
                 <td>
                     <select name="house" id="house" th:field="*{houseType}" th:required="true">
                         <option th:value="${null}" selected hidden></option>
@@ -56,12 +57,8 @@
                 </td>
             </tr>
             <tr>
-                <td>
-                    <input type="submit" value="Add student">
-                </td>
-                <td>
-                    <input type="reset" value="Reset"/>
-                </td>
+                <td class="tableButtons"><input type="submit" value="Add student"></td>
+                <td class="tableButtons"><input type="reset" value="Reset"/></td>
             </tr>
         </table>
     </form>
