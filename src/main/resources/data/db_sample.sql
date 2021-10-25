@@ -19,7 +19,7 @@ insert into student (created_date, house_type, name, pet_type, room_id) values (
 insert into student (created_date, house_type, name, pet_type, room_id) values (date(current_date), 2, 'Mandy Brocklehurst', 2, 7);
 insert into student (created_date, house_type, name, pet_type, room_id) values (date(current_date), 2, 'Michael Corner', 0, 8);
 insert into student (created_date, house_type, name, pet_type, room_id) values (date(current_date), 3, 'Vincent Crabbe', 3, 8);
-insert into student (created_date, house_type, name, pet_type, room_id) values (date(current_date), 3, 'Vincent Crabbe', 2, 10);
+insert into student (created_date, house_type, name, pet_type, room_id) values (date(current_date), 3, 'Draco Malfoy', 2, 10);
 insert into student (created_date, house_type, name, pet_type, room_id) values (date(current_date), 3, 'Blaise Zabini', 0, 10);
 
 insert into ingredient (name) values ('ashwinder egg');
