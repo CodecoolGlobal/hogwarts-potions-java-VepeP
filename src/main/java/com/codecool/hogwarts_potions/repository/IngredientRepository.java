@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
 
-    List<Ingredient> findAll();
+    List<Ingredient> findAllByOrderByIdAsc();
 
     Ingredient findById(long id);
 
